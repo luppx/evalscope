@@ -1,6 +1,7 @@
 import copy
 import json
 import os
+import pdb
 import requests
 import shutil
 import threading
@@ -52,6 +53,7 @@ class ToolUseModel(OpenAICompatibleAPI):
         **model_args: Dict[str, Any],
     ) -> None:
         self.model_args = model_args
+        logger.info(f"Generation config: {config.model_dump()}")
         logger.info(f"model_args: {self.model_args}")
         # 加载本地模型tokenizer，用于计算token数
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_args.get("local_path"))
@@ -83,7 +85,7 @@ class ToolUseModel(OpenAICompatibleAPI):
         # 无状态沙盒
         # self.python_tool = PythonSandbox()
         # 有状态Jupyter
-        self.python_tool = JupyterTool()
+        self.python_tool = JupyterTool(concurrency=config.batch_size)
         self.default_tools = [self.python_tool.get_tool_info()]
 
     def generate(
@@ -93,6 +95,7 @@ class ToolUseModel(OpenAICompatibleAPI):
         tool_choice: ToolChoice,
         config: GenerateConfig,
     ) -> ModelOutput:
+        # pdb.set_trace()
         # 实现模型推理逻辑
         session_id = "generate_" + uuid.uuid4().hex
         tools = tools + self.default_tools if tools else self.default_tools
@@ -134,12 +137,15 @@ class ToolUseModel(OpenAICompatibleAPI):
                             id="exceed_length_" + uuid.uuid4().hex,
                             created=int(time.time()),
                             model=self.model_name,
-                            choices=[Choice(finish_reason="length", index=0, message=ChatCompletionMessage())]
+                            object="chat.completion",
+                            choices=[Choice(finish_reason="length", index=0, message=ChatCompletionMessage(role="assistant"))],
                         )
+                        logger.info(f"[session_id: {session_id}] Construct a custom completion due to exceed max_tokens: {completion.model_dump()}")
                         completions.append(completion)
                         choices = self.chat_choices_from_completion(completion, tools)
+                        logger.info(f"[session_id: {session_id}] choices due to exceed max_tokens: {choices}")
                         break
-                    # request['max_tokens'] = max(remain_tokens, 1)  # max_tokens must be >= 1
+                    request['max_tokens'] = max(remain_tokens, 1)  # max_tokens must be >= 1
                 
                 # generate completion and save response for model call
                 completion = self.client.chat.completions.create(**request)
