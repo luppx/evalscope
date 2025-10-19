@@ -227,6 +227,57 @@ class CacheManager:
         """
         return os.path.join(self.get_report_path(), f'{self.benchmark_name}.json')
 
+    def get_conversation_cache_path(self, subset: str) -> str:
+        """
+        Get the file path for conversation cache storage.
+
+        Args:
+            subset: Name of the dataset subset
+
+        Returns:
+            Path to the conversation cache file
+        """
+        # 跟reviews存在一个目录下
+        file_path = os.path.join(self.outputs.reviews_dir, self.model_name, f'{self.benchmark_name}_{subset}_conversation.jsonl')
+        # Ensure the directory exists
+        if self.outputs.is_make:
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        return file_path
+
+    def delete_conversation_cache(self, subset: str):
+        """Delete the conversation cache for a specific subset. If the cache exists, it will be removed."""
+        file_path = self.get_conversation_cache_path(subset)
+        if os.path.exists(file_path):
+            logger.info(f'Deleting conversation cache file: {file_path}')
+            os.remove(file_path)
+
+    def save_conversation_cache(
+        self,
+        subset: str,
+        task_state: TaskState,
+        sample_score: SampleScore,
+        save_metadata: bool = True
+    ) -> 'ConversationResult':
+        """
+        Save a conversation result to the cache.
+
+        Args:
+            subset: Name of the dataset subset
+            task_state: The task state that was reviewed
+            sample_score: The computed score for the sample
+
+        Returns:
+            The saved conversation result object
+        """
+        # 与review相同，唯一区别在于不会将input转为markdown格式，保留原始格式
+        cache_file = self.get_conversation_cache_path(subset)
+        # Convert score and state to serializable conversation result
+        conversation_result = ConversationResult.from_score_state(sample_score, task_state, save_metadata)
+        # Serialize to dictionary
+        conversation_result_dict = conversation_result.model_dump()
+        # Append to JSONL cache file
+        dump_jsonl_data(data_list=conversation_result_dict, jsonl_file=cache_file, dump_mode=DumpMode.APPEND)
+        return conversation_result
 
 class ModelResult(BaseModel):
     """
@@ -372,6 +423,74 @@ class ReviewResult(BaseModel):
         """
         output = [
             f'Review Result for Sample {self.index}:',
+            f'Target: {self.target}',
+            f'Score: {self.sample_score.model_dump_json(indent=2)}',
+        ]
+        return '\n'.join(output)
+
+class ConversationResult(BaseModel):
+    """
+    Serializable container for conversation results.
+
+    This class represents the result of reviewing a model's prediction,
+    including the computed score and relevant context.
+    """
+
+    index: int
+    """Index of the sample that was reviewed."""
+
+    input: Union[str, List[ChatMessage]]
+    """Original input from the sample (immutable reference)."""
+
+    target: Optional[str] = None
+    """Expected/target answer for the sample, if available."""
+
+    sample_score: SampleScore
+    """The computed evaluation score for this sample."""
+
+    @classmethod
+    def from_score_state(
+        cls, sample_score: SampleScore, state: TaskState, save_metadata: bool = True
+    ) -> 'ConversationResult':
+        """
+        Create a ConversationResult from a score and task state for caching.
+
+        Args:
+            sample_score: The computed score for the sample
+            state: The task state containing sample information
+
+        Returns:
+            ConversationResult object ready for caching
+        """
+        if not save_metadata:
+            sample_score = copy.deepcopy(sample_score)
+            sample_score.sample_metadata = None
+
+        return cls(
+            index=state.sample_id,
+            input=state.input,
+            target=state.target,
+            sample_score=sample_score,
+        )
+
+    def to_sample_score(self) -> SampleScore:
+        """
+        Extract the sample score from the cached conversation result.
+
+        Returns:
+            The sample score object
+        """
+        return self.sample_score
+
+    def pretty_print(self) -> str:
+        """
+        Generate a pretty-printed string representation of the conversation result.
+
+        Returns:
+            A string representation of the conversation result
+        """
+        output = [
+            f'Conversation Result for Sample {self.index}:',
             f'Target: {self.target}',
             f'Score: {self.sample_score.model_dump_json(indent=2)}',
         ]

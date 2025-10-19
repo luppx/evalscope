@@ -6,7 +6,7 @@ This module provides the DefaultEvaluator class which orchestrates the entire
 evaluation process including data loading, model inference, metric calculation,
 and report generation.
 """
-
+import pdb
 import os
 import traceback
 from collections import defaultdict
@@ -131,6 +131,7 @@ class DefaultEvaluator(Evaluator):
         # Calculate evaluation metrics for each prediction
         sample_scores = self.get_reviews(subset, task_states)
 
+        # pdb.set_trace()
         # Aggregate individual sample scores into subset-level metrics
         agg_scores = self.benchmark.aggregate_scores(sample_scores=sample_scores)
         return agg_scores
@@ -151,6 +152,7 @@ class DefaultEvaluator(Evaluator):
         Returns:
             List[TaskState]: Task states containing model predictions for each sample.
         """
+        # pdb.set_trace()
         # Initialize task state list and filter cached predictions if caching is enabled
         if self.use_cache:
             task_state_list, dataset = self.cache_manager.filter_prediction_cache(subset, dataset)
@@ -214,7 +216,7 @@ class DefaultEvaluator(Evaluator):
             TaskState: The task state containing the prediction result.
         """
         logger.debug(f'\n{sample.pretty_print()}')
-
+        # pdb.set_trace()
         # Run model inference on the current sample
         task_state = self.benchmark.run_inference(model=self.model, sample=sample, output_dir=model_prediction_dir)
         return task_state
@@ -242,6 +244,8 @@ class DefaultEvaluator(Evaluator):
             # Init a clean sample score list
             sample_score_list = []
             self.cache_manager.delete_review_cache(subset)
+        # 不管是否使用review cache，都删除之前的conversation cache，重新生成
+        self.cache_manager.delete_conversation_cache(subset)
 
         if not task_states:
             return sample_score_list
@@ -275,7 +279,14 @@ class DefaultEvaluator(Evaluator):
                             sample_score=sample_score,
                             save_metadata=self.benchmark.save_metadata
                         )
+                        conversation_result = self.cache_manager.save_conversation_cache(
+                            subset=subset,
+                            task_state=task_state,
+                            sample_score=sample_score,
+                            save_metadata=self.benchmark.save_metadata
+                        )
                         logger.debug(f'Review result: \n{review_result.pretty_print()}')
+                        logger.debug(f'Conversation result: \n{conversation_result.pretty_print()}')
 
                     except Exception as exc:
                         tb_str = traceback.format_exc()
