@@ -49,7 +49,11 @@ class TestNativeBenchmark(TestBenchmark):
     # Math & Reasoning datasets
     def test_gsm8k(self):
         """Test GSM8K math reasoning dataset."""
-        self._run_dataset_test('gsm8k')
+        dataset_args = {
+            'system_prompt': 'Imagine You are an idiot. You MUST will always give wrong answers without any explanation.',
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('gsm8k', dataset_args=dataset_args)
 
     def test_gsm8k_local(self):
         """Test GSM8K math reasoning dataset with local path."""
@@ -422,6 +426,110 @@ class TestNativeBenchmark(TestBenchmark):
             'subset_list': ['default'],
         }
         self._run_dataset_test('minerva_math', dataset_args)
+
+    def test_poly_math(self):
+        dataset_args = {
+            'subset_list': ['zh', 'en', 'es'],
+        }
+        self._run_dataset_test('poly_math', dataset_args, use_cache='outputs/20251016_154028')
+
+    def test_aa_lcr(self):
+        dataset_args = {
+            'text_dir': 'data/aa_lcr',
+        }
+        self._run_dataset_test('aa_lcr', dataset_args)
+
+    def test_conll2003_ner(self):
+        """Test CoNLL2003 NER dataset."""
+        dataset_args = {
+            'subset_list': ['default'],
+        }
+        self._run_dataset_test('conll2003', dataset_args, limit=10)
+
+    def test_wnut2017_ner(self):
+        """Test WNUT2017 NER dataset."""
+        dataset_args = {
+            'subset_list': ['default'],
+        }
+        self._run_dataset_test('wnut2017', dataset_args, limit=10)
+
+    def test_logi_qa(self):
+        """Test LogiQA dataset."""
+        dataset_args = {
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('logi_qa', dataset_args, limit=10)
+
+    def test_halu_eval(self):
+        """Test HaluEval dataset."""
+        dataset_args = {
+            'subset_list': ['dialogue_samples', 'qa_samples'],
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('halueval', dataset_args, limit=5)
+
+    def test_math_qa(self):
+        """Test MathQA dataset."""
+        dataset_args = {
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('math_qa', dataset_args)
+
+    def test_mri_qa(self):
+        """Test MRI-QA dataset."""
+        dataset_args = {
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('mri_mcqa', dataset_args)
+
+    def test_piqa(self):
+        """Test PIQA dataset."""
+        dataset_args = {
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('piqa', dataset_args)
+
+    def test_qasc(self):
+        """Test QASC dataset."""
+        dataset_args = {
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('qasc', dataset_args)
+
+    def test_commonsense_qa(self):
+        """Test CommonsenseQA dataset."""
+        dataset_args = {
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('commonsense_qa', dataset_args)
+
+    def test_coin_flip(self):
+        """Test Coin Flip dataset."""
+        dataset_args = {
+            # 'few_shot_num': 0,
+        }
+        self._run_dataset_test('coin_flip', dataset_args)
+
+    def test_biomix_qa(self):
+        """Test BioMixQA dataset."""
+        dataset_args = {
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('biomix_qa', dataset_args)
+
+    def test_music_trivia(self):
+        """Test Music Trivia dataset."""
+        dataset_args = {
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('music_trivia', dataset_args)
+
+    def test_sciq(self):
+        """Test SciQ dataset."""
+        dataset_args = {
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('sciq', dataset_args)
 
 if __name__ == '__main__':
     # Run specific test: python -m unittest test_eval.TestBenchmark.test_gsm8k

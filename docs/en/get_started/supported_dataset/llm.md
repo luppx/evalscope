@@ -4,6 +4,7 @@ Below is the list of supported LLM benchmarks. Click on a benchmark name to jump
 
 | Benchmark Name | Pretty Name | Task Categories |
 |------------|----------|----------|
+| `aa_lcr` | [AA-LCR](#aa-lcr) | `Knowledge`, `LongContext`, `Reasoning` |
 | `aime24` | [AIME-2024](#aime-2024) | `Math`, `Reasoning` |
 | `aime25` | [AIME-2025](#aime-2025) | `Math`, `Reasoning` |
 | `alpaca_eval` | [AlpacaEval2.0](#alpacaeval20) | `Arena`, `InstructionFollowing` |
@@ -12,48 +13,121 @@ Below is the list of supported LLM benchmarks. Click on a benchmark name to jump
 | `arena_hard` | [ArenaHard](#arenahard) | `Arena`, `InstructionFollowing` |
 | `bbh` | [BBH](#bbh) | `Reasoning` |
 | `bfcl_v3` | [BFCL-v3](#bfcl-v3) | `FunctionCalling` |
+| `biomix_qa` | [BioMixQA](#biomixqa) | `Knowledge`, `MCQ`, `Medical` |
+| `broad_twitter_corpus` | [BroadTwitterCorpus](#broadtwittercorpus) | `Knowledge`, `NER` |
 | `ceval` | [C-Eval](#c-eval) | `Chinese`, `Knowledge`, `MCQ` |
 | `chinese_simpleqa` | [Chinese-SimpleQA](#chinese-simpleqa) | `Chinese`, `Knowledge`, `QA` |
 | `cmmlu` | [C-MMLU](#c-mmlu) | `Chinese`, `Knowledge`, `MCQ` |
+| `coin_flip` | [CoinFlip](#coinflip) | `Reasoning`, `Yes/No` |
+| `commonsense_qa` | [CommonsenseQA](#commonsenseqa) | `Commonsense`, `MCQ`, `Reasoning` |
 | `competition_math` | [MATH](#math) | `Math`, `Reasoning` |
-| `data_collection` | [data_collection](#data_collection) | `Custom` |
+| `conll2003` | [CoNLL2003](#conll2003) | `Knowledge`, `NER` |
+| `copious` | [Copious](#copious) | `Knowledge`, `NER` |
+| `cross_ner` | [CrossNER](#crossner) | `Knowledge`, `NER` |
+| `data_collection` | [Data-Collection](#data-collection) | `Custom` |
 | `docmath` | [DocMath](#docmath) | `LongContext`, `Math`, `Reasoning` |
+| `drivel_binary` | [DrivelologyBinaryClassification](#drivelologybinaryclassification) | `Yes/No` |
+| `drivel_multilabel` | [DrivelologyMultilabelClassification](#drivelologymultilabelclassification) | `MCQ` |
+| `drivel_selection` | [DrivelologyNarrativeSelection](#drivelologynarrativeselection) | `MCQ` |
+| `drivel_writing` | [DrivelologyNarrativeWriting](#drivelologynarrativewriting) | `Knowledge`, `Reasoning` |
 | `drop` | [DROP](#drop) | `Reasoning` |
 | `frames` | [FRAMES](#frames) | `LongContext`, `Reasoning` |
 | `general_arena` | [GeneralArena](#generalarena) | `Arena`, `Custom` |
 | `general_mcq` | [General-MCQ](#general-mcq) | `Custom`, `MCQ` |
 | `general_qa` | [General-QA](#general-qa) | `Custom`, `QA` |
+| `genia_ner` | [GeniaNER](#genianer) | `Knowledge`, `NER` |
 | `gpqa_diamond` | [GPQA-Diamond](#gpqa-diamond) | `Knowledge`, `MCQ` |
 | `gsm8k` | [GSM8K](#gsm8k) | `Math`, `Reasoning` |
-| `health_bench` | [HealthBench](#healthbench) | `Knowledge`, `QA` |
+| `halueval` | [HaluEval](#halueval) | `Hallucination`, `Knowledge`, `Yes/No` |
+| `harvey_ner` | [HarveyNER](#harveyner) | `Knowledge`, `NER` |
+| `health_bench` | [HealthBench](#healthbench) | `Knowledge`, `Medical`, `QA` |
 | `hellaswag` | [HellaSwag](#hellaswag) | `Commonsense`, `Knowledge`, `MCQ` |
 | `hle` | [Humanity's-Last-Exam](#humanitys-last-exam) | `Knowledge`, `QA` |
 | `humaneval` | [HumanEval](#humaneval) | `Coding` |
 | `ifeval` | [IFEval](#ifeval) | `InstructionFollowing` |
 | `iquiz` | [IQuiz](#iquiz) | `Chinese`, `Knowledge`, `MCQ` |
 | `live_code_bench` | [Live-Code-Bench](#live-code-bench) | `Coding` |
+| `logi_qa` | [LogiQA](#logiqa) | `MCQ`, `Reasoning` |
 | `maritime_bench` | [MaritimeBench](#maritimebench) | `Chinese`, `Knowledge`, `MCQ` |
 | `math_500` | [MATH-500](#math-500) | `Math`, `Reasoning` |
+| `math_qa` | [MathQA](#mathqa) | `MCQ`, `Math`, `Reasoning` |
+| `med_mcqa` | [Med-MCQA](#med-mcqa) | `Knowledge`, `MCQ` |
 | `minerva_math` | [Minerva-Math](#minerva-math) | `Math`, `Reasoning` |
+| `mit_movie_trivia` | [MIT-Movie-Trivia](#mit-movie-trivia) | `Knowledge`, `NER` |
+| `mit_restaurant` | [MIT-Restaurant](#mit-restaurant) | `Knowledge`, `NER` |
 | `mmlu` | [MMLU](#mmlu) | `Knowledge`, `MCQ` |
 | `mmlu_pro` | [MMLU-Pro](#mmlu-pro) | `Knowledge`, `MCQ` |
 | `mmlu_redux` | [MMLU-Redux](#mmlu-redux) | `Knowledge`, `MCQ` |
+| `mri_mcqa` | [MRI-MCQA](#mri-mcqa) | `Knowledge`, `MCQ`, `Medical` |
 | `multi_if` | [Multi-IF](#multi-if) | `InstructionFollowing`, `MultiLingual`, `MultiTurn` |
+| `music_trivia` | [MusicTrivia](#musictrivia) | `Knowledge`, `MCQ` |
 | `musr` | [MuSR](#musr) | `MCQ`, `Reasoning` |
 | `needle_haystack` | [Needle-in-a-Haystack](#needle-in-a-haystack) | `LongContext`, `Retrieval` |
+| `ontonotes5` | [OntoNotes5](#ontonotes5) | `Knowledge`, `NER` |
+| `piqa` | [PIQA](#piqa) | `Commonsense`, `MCQ`, `Reasoning` |
+| `poly_math` | [PolyMath](#polymath) | `Math`, `MultiLingual`, `Reasoning` |
 | `process_bench` | [ProcessBench](#processbench) | `Math`, `Reasoning` |
+| `pubmedqa` | [PubMedQA](#pubmedqa) | `Knowledge`, `Yes/No` |
+| `qasc` | [QASC](#qasc) | `Knowledge`, `MCQ` |
 | `race` | [RACE](#race) | `MCQ`, `Reasoning` |
+| `sciq` | [SciQ](#sciq) | `Knowledge`, `MCQ`, `ReadingComprehension` |
 | `simple_qa` | [SimpleQA](#simpleqa) | `Knowledge`, `QA` |
+| `siqa` | [SIQA](#siqa) | `Commonsense`, `MCQ`, `Reasoning` |
 | `super_gpqa` | [SuperGPQA](#supergpqa) | `Knowledge`, `MCQ` |
 | `tau_bench` | [τ-bench](#τ-bench) | `FunctionCalling`, `Reasoning` |
 | `tool_bench` | [ToolBench-Static](#toolbench-static) | `FunctionCalling`, `Reasoning` |
 | `trivia_qa` | [TriviaQA](#triviaqa) | `QA`, `ReadingComprehension` |
 | `truthful_qa` | [TruthfulQA](#truthfulqa) | `Knowledge` |
 | `winogrande` | [Winogrande](#winogrande) | `MCQ`, `Reasoning` |
+| `wnut2017` | [WNUT2017](#wnut2017) | `Knowledge`, `NER` |
 
 ---
 
 ## Benchmark Details
+
+### AA-LCR
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `aa_lcr`
+- **Dataset ID**: [evalscope/AA-LCR](https://modelscope.cn/datasets/evalscope/AA-LCR/summary)
+- **Description**:
+  > AA-LCR (Artificial Analysis Long Context Retrieval) is a benchmark for evaluating long-context retrieval and reasoning capabilities of language models across multiple documents.
+- **Task Categories**: `Knowledge`, `LongContext`, `Reasoning`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: Yes
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Extra Parameters**: 
+```json
+{
+    "text_dir": null
+}
+```
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+
+BEGIN INPUT DOCUMENTS
+
+{documents_text}
+
+END INPUT DOCUMENTS
+
+Answer the following question using the input documents provided above.
+
+START QUESTION
+
+{question}
+
+END QUESTION
+
+```
+
+</details>
+
+---
 
 ### AIME-2024
 
@@ -68,11 +142,15 @@ Below is the list of supported LLM benchmarks. Click on a benchmark name to jump
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 {question}
 Please reason step by step, and put your final answer within \boxed{{}}.
 ```
+
+</details>
 
 ---
 
@@ -89,11 +167,15 @@ Please reason step by step, and put your final answer within \boxed{{}}.
 - **Default Shots**: 0-shot
 - **Subsets**: `AIME2025-II`, `AIME2025-I`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 {question}
 Please reason step by step, and put your final answer within \boxed{{}}.
 ```
+
+</details>
 
 ---
 
@@ -110,10 +192,14 @@ Please reason step by step, and put your final answer within \boxed{{}}.
 - **Default Shots**: 0-shot
 - **Subsets**: `alpaca_eval_gpt4_baseline`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 {question}
 ```
+
+</details>
 
 ---
 
@@ -130,11 +216,15 @@ Please reason step by step, and put your final answer within \boxed{{}}.
 - **Default Shots**: 0-shot
 - **Subsets**: `amc22`, `amc23`, `amc24`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 {question}
 Please reason step by step, and put your final answer within \boxed{{}}.
 ```
+
+</details>
 
 ---
 
@@ -151,7 +241,9 @@ Please reason step by step, and put your final answer within \boxed{{}}.
 - **Default Shots**: 0-shot
 - **Subsets**: `ARC-Challenge`, `ARC-Easy`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
 
@@ -159,6 +251,8 @@ Answer the following multiple choice question. The entire content of your respon
 
 {choices}
 ```
+
+</details>
 
 ---
 
@@ -175,10 +269,14 @@ Answer the following multiple choice question. The entire content of your respon
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 {question}
 ```
+
+</details>
 
 ---
 
@@ -195,12 +293,16 @@ Answer the following multiple choice question. The entire content of your respon
 - **Default Shots**: 3-shot
 - **Subsets**: `boolean_expressions`, `causal_judgement`, `date_understanding`, `disambiguation_qa`, `dyck_languages`, `formal_fallacies`, `geometric_shapes`, `hyperbaton`, `logical_deduction_five_objects`, `logical_deduction_seven_objects`, `logical_deduction_three_objects`, `movie_recommendation`, `multistep_arithmetic_two`, `navigate`, `object_counting`, `penguins_in_a_table`, `reasoning_about_colored_objects`, `ruin_names`, `salient_translation_error_detection`, `snarks`, `sports_understanding`, `temporal_sequences`, `tracking_shuffled_objects_five_objects`, `tracking_shuffled_objects_seven_objects`, `tracking_shuffled_objects_three_objects`, `web_of_lies`, `word_sorting`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Q: {question}
 A: Let's think step by step. Put your final answer in the format of "So the answer is $ANSWER" (without quotes and markdown) where $ANSWER is the answer to the problem.
 
 ```
+
+</details>
 
 ---
 
@@ -210,7 +312,7 @@ A: Let's think step by step. Put your final answer in the format of "So the answ
 - **Dataset Name**: `bfcl_v3`
 - **Dataset ID**: [AI-ModelScope/bfcl_v3](https://modelscope.cn/datasets/AI-ModelScope/bfcl_v3/summary)
 - **Description**:
-  > Berkeley Function Calling Leaderboard (BFCL), the **first comprehensive and executable function call evaluation** dedicated to assessing Large Language Models' (LLMs) ability to invoke functions. Unlike previous evaluations, BFCL accounts for various forms of function calls, diverse scenarios, and executability. Need to run `pip install bfcl-eval==2025.6.16` before evaluating. [Usage Example](https://evalscope.readthedocs.io/zh-cn/latest/third_party/bfcl_v3.html)
+  > Berkeley Function Calling Leaderboard (BFCL), the **first comprehensive and executable function call evaluation** dedicated to assessing Large Language Models' (LLMs) ability to invoke functions. Unlike previous evaluations, BFCL accounts for various forms of function calls, diverse scenarios, and executability. Need to run `pip install bfcl-eval==2025.6.16` before evaluating. [Usage Example](https://evalscope.readthedocs.io/en/latest/third_party/bfcl_v3.html)
 - **Task Categories**: `FunctionCalling`
 - **Evaluation Metrics**: `acc`
 - **Requires LLM Judge**: No
@@ -227,6 +329,79 @@ A: Let's think step by step. Put your final answer in the format of "So the answ
 
 ---
 
+### BioMixQA
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `biomix_qa`
+- **Dataset ID**: [extraordinarylab/biomix-qa](https://modelscope.cn/datasets/extraordinarylab/biomix-qa/summary)
+- **Description**:
+  > BiomixQA is a curated biomedical question-answering dataset. BiomixQA has been utilized to validate the Knowledge Graph based Retrieval-Augmented Generation (KG-RAG) framework across different LLMs.
+- **Task Categories**: `Knowledge`, `MCQ`, `Medical`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
+
+{question}
+
+{choices}
+```
+
+</details>
+
+---
+
+### BroadTwitterCorpus
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `broad_twitter_corpus`
+- **Dataset ID**: [extraordinarylab/broad-twitter-corpus](https://modelscope.cn/datasets/extraordinarylab/broad-twitter-corpus/summary)
+- **Description**:
+  > BroadTwitterCorpus is a dataset of tweets collected over stratified times, places and social uses. The goal is to represent a broad range of activities, giving a dataset more representative of the language used in this hardest of social media formats to process.
+- **Task Categories**: `Knowledge`, `NER`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`
+- **Requires LLM Judge**: No
+- **Default Shots**: 5-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+You are a named entity recognition system that identifies the following entity types:
+{entities}
+
+Process the provided text and mark all named entities with XML-style tags.
+
+For example:
+<person>John Smith</person> works at <organization>Google</organization> in <location>Mountain View</location>.
+
+Available entity tags: {entity_list}
+
+INSTRUCTIONS:
+1. Wrap your entire response in <response>...</response> tags.
+2. Inside these tags, include the original text with entity tags inserted.
+3. Do not change the original text in any way (preserve spacing, punctuation, case, etc.).
+4. Tag ALL entities you can identify using the exact tag names provided.
+5. Do not include explanations, just the tagged text.
+6. If entity spans overlap, choose the most specific entity type.
+7. Ensure every opening tag has a matching closing tag.
+
+Text to process:
+{text}
+
+```
+
+</details>
+
+---
+
 ### C-Eval
 
 [Back to Top](#llm-benchmarks)
@@ -240,7 +415,9 @@ A: Let's think step by step. Put your final answer in the format of "So the answ
 - **Default Shots**: 5-shot
 - **Subsets**: `accountant`, `advanced_mathematics`, `art_studies`, `basic_medicine`, `business_administration`, `chinese_language_and_literature`, `civil_servant`, `clinical_medicine`, `college_chemistry`, `college_economics`, `college_physics`, `college_programming`, `computer_architecture`, `computer_network`, `discrete_mathematics`, `education_science`, `electrical_engineer`, `environmental_impact_assessment_engineer`, `fire_engineer`, `high_school_biology`, `high_school_chemistry`, `high_school_chinese`, `high_school_geography`, `high_school_history`, `high_school_mathematics`, `high_school_physics`, `high_school_politics`, `ideological_and_moral_cultivation`, `law`, `legal_professional`, `logic`, `mao_zedong_thought`, `marxism`, `metrology_engineer`, `middle_school_biology`, `middle_school_chemistry`, `middle_school_geography`, `middle_school_history`, `middle_school_mathematics`, `middle_school_physics`, `middle_school_politics`, `modern_chinese_history`, `operating_system`, `physician`, `plant_protection`, `probability_and_statistics`, `professional_tour_guide`, `sports_science`, `tax_accountant`, `teacher_qualification`, `urban_and_rural_planner`, `veterinary_medicine`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 以下是中国关于{subject}的单项选择题，请选出其中的正确答案。你的回答的最后一行应该是这样的格式："答案：LETTER"（不带引号），其中 LETTER 是 A、B、C、D 中的一个。
 
@@ -249,6 +426,8 @@ A: Let's think step by step. Put your final answer in the format of "So the answ
 {choices}
 
 ```
+
+</details>
 
 ---
 
@@ -265,12 +444,16 @@ A: Let's think step by step. Put your final answer in the format of "So the answ
 - **Default Shots**: 0-shot
 - **Subsets**: `中华文化`, `人文与社会科学`, `工程、技术与应用科学`, `生活、艺术与文化`, `社会`, `自然与自然科学`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 请回答问题：
 
 {question}
 ```
+
+</details>
 
 ---
 
@@ -287,7 +470,9 @@ A: Let's think step by step. Put your final answer in the format of "So the answ
 - **Default Shots**: 0-shot
 - **Subsets**: `agronomy`, `anatomy`, `ancient_chinese`, `arts`, `astronomy`, `business_ethics`, `chinese_civil_service_exam`, `chinese_driving_rule`, `chinese_food_culture`, `chinese_foreign_policy`, `chinese_history`, `chinese_literature`, `chinese_teacher_qualification`, `clinical_knowledge`, `college_actuarial_science`, `college_education`, `college_engineering_hydrology`, `college_law`, `college_mathematics`, `college_medical_statistics`, `college_medicine`, `computer_science`, `computer_security`, `conceptual_physics`, `construction_project_management`, `economics`, `education`, `electrical_engineering`, `elementary_chinese`, `elementary_commonsense`, `elementary_information_and_technology`, `elementary_mathematics`, `ethnology`, `food_science`, `genetics`, `global_facts`, `high_school_biology`, `high_school_chemistry`, `high_school_geography`, `high_school_mathematics`, `high_school_physics`, `high_school_politics`, `human_sexuality`, `international_law`, `journalism`, `jurisprudence`, `legal_and_moral_basis`, `logical`, `machine_learning`, `management`, `marketing`, `marxist_theory`, `modern_chinese`, `nutrition`, `philosophy`, `professional_accounting`, `professional_law`, `professional_medicine`, `professional_psychology`, `public_relations`, `security_study`, `sociology`, `sports_science`, `traditional_chinese_medicine`, `virology`, `world_history`, `world_religions`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 回答下面的单项选择题，请选出其中的正确答案。你的回答的最后一行应该是这样的格式："答案：LETTER"（不带引号），其中 LETTER 是 {letters} 中的一个。请在回答前进行一步步思考。
 
@@ -296,6 +481,68 @@ A: Let's think step by step. Put your final answer in the format of "So the answ
 {choices}
 
 ```
+
+</details>
+
+---
+
+### CoinFlip
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `coin_flip`
+- **Dataset ID**: [extraordinarylab/coin-flip](https://modelscope.cn/datasets/extraordinarylab/coin-flip/summary)
+- **Description**:
+  > CoinFlip is a symbolic reasoning dataset that tests an LLM's ability to track binary state changes through a sequence of actions. Each example describes whether a coin is flipped or not by different person, requiring logical inference to determine the final state (heads or tails).
+- **Task Categories**: `Reasoning`, `Yes/No`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`, `yes_ratio`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+
+Solve the following coin flip problem step by step. The last line of your response should be of the form "ANSWER: $ANSWER" (without quotes) where $ANSWER is the answer to the problem.
+
+{question}
+
+Remember to put your answer on its own line at the end in the form "ANSWER: $ANSWER" (without quotes) where $ANSWER is the answer YES or NO to the problem.
+
+Reasoning:
+
+```
+
+</details>
+
+---
+
+### CommonsenseQA
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `commonsense_qa`
+- **Dataset ID**: [extraordinarylab/commonsense-qa](https://modelscope.cn/datasets/extraordinarylab/commonsense-qa/summary)
+- **Description**:
+  > CommonsenseQA requires different types of commonsense knowledge to predict the correct answers.
+- **Task Categories**: `Commonsense`, `MCQ`, `Reasoning`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
+
+{question}
+
+{choices}
+```
+
+</details>
 
 ---
 
@@ -312,7 +559,9 @@ A: Let's think step by step. Put your final answer in the format of "So the answ
 - **Default Shots**: 4-shot
 - **Subsets**: `Level 1`, `Level 2`, `Level 3`, `Level 4`, `Level 5`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Problem:
 {question}
@@ -321,15 +570,152 @@ Please reason step by step, and put your final answer within \boxed{{}}.
 
 ```
 
+</details>
+
 ---
 
-### data_collection
+### CoNLL2003
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `conll2003`
+- **Dataset ID**: [evalscope/conll2003](https://modelscope.cn/datasets/evalscope/conll2003/summary)
+- **Description**:
+  > The ConLL-2003 dataset is for the Named Entity Recognition (NER) task. It was introduced as part of the ConLL-2003 Shared Task conference and contains texts annotated with entities such as people, organizations, places, and various names.
+- **Task Categories**: `Knowledge`, `NER`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`
+- **Requires LLM Judge**: No
+- **Default Shots**: 5-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+You are a named entity recognition system that identifies the following entity types:
+{entities}
+
+Process the provided text and mark all named entities with XML-style tags.
+
+For example:
+<person>John Smith</person> works at <organization>Google</organization> in <location>Mountain View</location>.
+
+Available entity tags: {entity_list}
+
+INSTRUCTIONS:
+1. Wrap your entire response in <response>...</response> tags.
+2. Inside these tags, include the original text with entity tags inserted.
+3. Do not change the original text in any way (preserve spacing, punctuation, case, etc.).
+4. Tag ALL entities you can identify using the exact tag names provided.
+5. Do not include explanations, just the tagged text.
+6. If entity spans overlap, choose the most specific entity type.
+7. Ensure every opening tag has a matching closing tag.
+
+Text to process:
+{text}
+
+```
+
+</details>
+
+---
+
+### Copious
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `copious`
+- **Dataset ID**: [extraordinarylab/copious](https://modelscope.cn/datasets/extraordinarylab/copious/summary)
+- **Description**:
+  > Copious corpus is a gold standard corpus that covers a wide range of biodiversity entities, consisting of 668 documents downloaded from the Biodiversity Heritage Library with over 26K sentences and more than 28K entities.
+- **Task Categories**: `Knowledge`, `NER`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`
+- **Requires LLM Judge**: No
+- **Default Shots**: 5-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+You are a named entity recognition system that identifies the following entity types:
+{entities}
+
+Process the provided text and mark all named entities with XML-style tags.
+
+For example:
+<person>John Smith</person> works at <organization>Google</organization> in <location>Mountain View</location>.
+
+Available entity tags: {entity_list}
+
+INSTRUCTIONS:
+1. Wrap your entire response in <response>...</response> tags.
+2. Inside these tags, include the original text with entity tags inserted.
+3. Do not change the original text in any way (preserve spacing, punctuation, case, etc.).
+4. Tag ALL entities you can identify using the exact tag names provided.
+5. Do not include explanations, just the tagged text.
+6. If entity spans overlap, choose the most specific entity type.
+7. Ensure every opening tag has a matching closing tag.
+
+Text to process:
+{text}
+
+```
+
+</details>
+
+---
+
+### CrossNER
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `cross_ner`
+- **Dataset ID**: [extraordinarylab/cross-ner](https://modelscope.cn/datasets/extraordinarylab/cross-ner/summary)
+- **Description**:
+  > CrossNER is a fully-labelled collected of named entity recognition (NER) data spanning over five diverse domains (AI, Literature, Music, Politics, Science).
+- **Task Categories**: `Knowledge`, `NER`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`
+- **Requires LLM Judge**: No
+- **Default Shots**: 5-shot
+- **Subsets**: `ai`, `literature`, `music`, `politics`, `science`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+You are a named entity recognition system that identifies the following entity types:
+{entities}
+
+Process the provided text and mark all named entities with XML-style tags.
+
+For example:
+<person>John Smith</person> works at <organization>Google</organization> in <location>Mountain View</location>.
+
+Available entity tags: {entity_list}
+
+INSTRUCTIONS:
+1. Wrap your entire response in <response>...</response> tags.
+2. Inside these tags, include the original text with entity tags inserted.
+3. Do not change the original text in any way (preserve spacing, punctuation, case, etc.).
+4. Tag ALL entities you can identify using the exact tag names provided.
+5. Do not include explanations, just the tagged text.
+6. If entity spans overlap, choose the most specific entity type.
+7. Ensure every opening tag has a matching closing tag.
+
+Text to process:
+{text}
+
+```
+
+</details>
+
+---
+
+### Data-Collection
 
 [Back to Top](#llm-benchmarks)
 - **Dataset Name**: `data_collection`
 - **Dataset ID**: 
 - **Description**:
-  > Custom Data collection, mixing multiple evaluation datasets for a unified evaluation, aiming to use less data to achieve a more comprehensive assessment of the model's capabilities. [Usage Reference](https://evalscope.readthedocs.io/zh-cn/latest/advanced_guides/collection/index.html)
+  > Custom Data collection, mixing multiple evaluation datasets for a unified evaluation, aiming to use less data to achieve a more comprehensive assessment of the model's capabilities. [Usage Reference](https://evalscope.readthedocs.io/en/latest/advanced_guides/collection/index.html)
 - **Task Categories**: `Custom`
 - **Evaluation Metrics**: `acc`
 - **Requires LLM Judge**: No
@@ -352,7 +738,9 @@ Please reason step by step, and put your final answer within \boxed{{}}.
 - **Default Shots**: 0-shot
 - **Subsets**: `complong_testmini`, `compshort_testmini`, `simplong_testmini`, `simpshort_testmini`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Please read the following text and answer the question below.
 
@@ -364,6 +752,113 @@ Please read the following text and answer the question below.
 
 Format your response as follows: "Therefore, the answer is (insert answer here)".
 ```
+
+</details>
+
+---
+
+### DrivelologyBinaryClassification
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `drivel_binary`
+- **Dataset ID**: [extraordinarylab/drivel-hub](https://modelscope.cn/datasets/extraordinarylab/drivel-hub/summary)
+- **Description**:
+  > Drivelology, a unique linguistic phenomenon characterised as "nonsense with depth" - utterances that are syntactically coherent yet pragmatically paradoxical, emotionally loaded, or rhetorically subversive.
+- **Task Categories**: `Yes/No`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`, `yes_ratio`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `binary-classification`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+{question}
+```
+
+</details>
+
+---
+
+### DrivelologyMultilabelClassification
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `drivel_multilabel`
+- **Dataset ID**: [extraordinarylab/drivel-hub](https://modelscope.cn/datasets/extraordinarylab/drivel-hub/summary)
+- **Description**:
+  > Drivelology, a unique linguistic phenomenon characterised as "nonsense with depth" - utterances that are syntactically coherent yet pragmatically paradoxical, emotionally loaded, or rhetorically subversive.
+- **Task Categories**: `MCQ`
+- **Evaluation Metrics**: `exact_match`, `f1_macro`, `f1_micro`, `f1_weighted`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `multi-label-classification`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+{question}
+```
+
+</details>
+
+---
+
+### DrivelologyNarrativeSelection
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `drivel_selection`
+- **Dataset ID**: [extraordinarylab/drivel-hub](https://modelscope.cn/datasets/extraordinarylab/drivel-hub/summary)
+- **Description**:
+  > Drivelology, a unique linguistic phenomenon characterised as "nonsense with depth" - utterances that are syntactically coherent yet pragmatically paradoxical, emotionally loaded, or rhetorically subversive.
+- **Task Categories**: `MCQ`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `multiple-choice-english-easy`, `multiple-choice-english-hard`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Tell me the best option in the following options which represents the underlying narrative of the text?
+The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
+
+{question}
+
+{choices}
+```
+
+</details>
+
+---
+
+### DrivelologyNarrativeWriting
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `drivel_writing`
+- **Dataset ID**: [extraordinarylab/drivel-hub](https://modelscope.cn/datasets/extraordinarylab/drivel-hub/summary)
+- **Description**:
+  > Drivelology, a unique linguistic phenomenon characterised as "nonsense with depth" - utterances that are syntactically coherent yet pragmatically paradoxical, emotionally loaded, or rhetorically subversive.
+- **Task Categories**: `Knowledge`, `Reasoning`
+- **Evaluation Metrics**: `bert_score`, `gpt_score`
+- **Requires LLM Judge**: Yes
+- **Default Shots**: 0-shot
+- **Subsets**: `narrative-writing-english`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+You need to first read and understand the text given. Generate a detailed description to illustrate the implicit narrative of the text.
+
+Please provide your response in English, with a clear and comprehensive explanation of the narrative.
+
+Text: {text}
+```
+
+</details>
 
 ---
 
@@ -380,7 +875,9 @@ Format your response as follows: "Therefore, the answer is (insert answer here)"
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 You will be asked to read a passage and answer a question. {drop_examples}
 # Your Task
@@ -390,6 +887,8 @@ You will be asked to read a passage and answer a question. {drop_examples}
 
 Think step by step, then write a line of the form "Answer: $ANSWER" at the end of your response.
 ```
+
+</details>
 
 ---
 
@@ -406,7 +905,9 @@ Think step by step, then write a line of the form "Answer: $ANSWER" at the end o
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Please read the following text and answer the question below.
 
@@ -419,6 +920,8 @@ Please read the following text and answer the question below.
 Format your response as follows: "Therefore, the answer is (insert answer here)".
 ```
 
+</details>
+
 ---
 
 ### GeneralArena
@@ -427,7 +930,7 @@ Format your response as follows: "Therefore, the answer is (insert answer here)"
 - **Dataset Name**: `general_arena`
 - **Dataset ID**: general_arena
 - **Description**:
-  > GeneralArena is a custom benchmark designed to evaluate the performance of large language models in a competitive setting, where models are pitted against each other in custom tasks to determine their relative strengths and weaknesses. You should provide the model outputs in the format of a list of dictionaries, where each dictionary contains the model name and its report path. For detailed instructions on how to use this benchmark, please refer to the [Arena User Guide](https://evalscope.readthedocs.io/zh-cn/latest/user_guides/arena.html).
+  > GeneralArena is a custom benchmark designed to evaluate the performance of large language models in a competitive setting, where models are pitted against each other in custom tasks to determine their relative strengths and weaknesses. You should provide the model outputs in the format of a list of dictionaries, where each dictionary contains the model name and its report path. For detailed instructions on how to use this benchmark, please refer to the [Arena User Guide](https://evalscope.readthedocs.io/en/latest/user_guides/arena.html).
 - **Task Categories**: `Arena`, `Custom`
 - **Evaluation Metrics**: `winrate`
 - **Requires LLM Judge**: Yes
@@ -450,7 +953,9 @@ Format your response as follows: "Therefore, the answer is (insert answer here)"
     "baseline": "qwen2.5-7b"
 }
 ```
-- **System Prompt**: 
+- **System Prompt**:
+<details><summary>View</summary>
+
 ```text
 Please act as an impartial judge and evaluate the quality of the responses provided by two AI assistants to the user prompt displayed below. You will be given assistant A's answer and assistant B's answer. Your job is to evaluate which assistant's answer is better.
 
@@ -472,7 +977,11 @@ After providing your explanation, you must output only one of the following choi
 
 Example output: "My final verdict is tie: [[A=B]]".
 ```
-- **Prompt Template**: 
+
+</details>
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 <|User Prompt|>
 {question}
@@ -486,6 +995,8 @@ Example output: "My final verdict is tie: [[A=B]]".
 <|The End of Assistant B's Answer|>
 ```
 
+</details>
+
 ---
 
 ### General-MCQ
@@ -494,14 +1005,16 @@ Example output: "My final verdict is tie: [[A=B]]".
 - **Dataset Name**: `general_mcq`
 - **Dataset ID**: general_mcq
 - **Description**:
-  > A general multiple-choice question answering dataset for custom evaluation. For detailed instructions on how to use this benchmark, please refer to the [User Guide](https://evalscope.readthedocs.io/zh-cn/latest/advanced_guides/custom_dataset/llm.html#mcq).
+  > A general multiple-choice question answering dataset for custom evaluation. For detailed instructions on how to use this benchmark, please refer to the [User Guide](https://evalscope.readthedocs.io/en/latest/advanced_guides/custom_dataset/llm.html#mcq).
 - **Task Categories**: `Custom`, `MCQ`
 - **Evaluation Metrics**: `acc`
 - **Requires LLM Judge**: No
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 回答下面的单项选择题，请选出其中的正确答案。你的回答的最后一行应该是这样的格式："答案：LETTER"（不带引号），其中 LETTER 是 {letters} 中的一个。
 
@@ -511,6 +1024,8 @@ Example output: "My final verdict is tie: [[A=B]]".
 
 ```
 
+</details>
+
 ---
 
 ### General-QA
@@ -519,18 +1034,67 @@ Example output: "My final verdict is tie: [[A=B]]".
 - **Dataset Name**: `general_qa`
 - **Dataset ID**: general_qa
 - **Description**:
-  > A general question answering dataset for custom evaluation. For detailed instructions on how to use this benchmark, please refer to the [User Guide](https://evalscope.readthedocs.io/zh-cn/latest/advanced_guides/custom_dataset/llm.html#qa).
+  > A general question answering dataset for custom evaluation. For detailed instructions on how to use this benchmark, please refer to the [User Guide](https://evalscope.readthedocs.io/en/latest/advanced_guides/custom_dataset/llm.html#qa).
 - **Task Categories**: `Custom`, `QA`
 - **Evaluation Metrics**: `BLEU`, `Rouge`
 - **Requires LLM Judge**: No
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 请回答问题
 {question}
 ```
+
+</details>
+
+---
+
+### GeniaNER
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `genia_ner`
+- **Dataset ID**: [extraordinarylab/genia-ner](https://modelscope.cn/datasets/extraordinarylab/genia-ner/summary)
+- **Description**:
+  > GeniaNER consisting of 2,000 MEDLINE abstracts has been released with more than 400,000 words and almost 100,000 annotations for biological terms.
+- **Task Categories**: `Knowledge`, `NER`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`
+- **Requires LLM Judge**: No
+- **Default Shots**: 5-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+You are a named entity recognition system that identifies the following entity types:
+{entities}
+
+Process the provided text and mark all named entities with XML-style tags.
+
+For example:
+<person>John Smith</person> works at <organization>Google</organization> in <location>Mountain View</location>.
+
+Available entity tags: {entity_list}
+
+INSTRUCTIONS:
+1. Wrap your entire response in <response>...</response> tags.
+2. Inside these tags, include the original text with entity tags inserted.
+3. Do not change the original text in any way (preserve spacing, punctuation, case, etc.).
+4. Tag ALL entities you can identify using the exact tag names provided.
+5. Do not include explanations, just the tagged text.
+6. If entity spans overlap, choose the most specific entity type.
+7. Ensure every opening tag has a matching closing tag.
+
+Text to process:
+{text}
+
+```
+
+</details>
 
 ---
 
@@ -547,7 +1111,9 @@ Example output: "My final verdict is tie: [[A=B]]".
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the following multiple choice question. The last line of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}. Think step by step before answering.
 
@@ -555,6 +1121,8 @@ Answer the following multiple choice question. The last line of your response sh
 
 {choices}
 ```
+
+</details>
 
 ---
 
@@ -571,17 +1139,103 @@ Answer the following multiple choice question. The last line of your response sh
 - **Default Shots**: 4-shot
 - **Subsets**: `main`
 
-- **Prompt Template**: 
-```text
-Solve the following math problem step by step. The last line of your response should be of the form "ANSWER: $ANSWER" (without quotes) where $ANSWER is the answer to the problem.
+- **Prompt Template**:
+<details><summary>View</summary>
 
+```text
+Solve the following math problem step by step. The last line of your response should display the answer enclosed within \boxed{{\text{{$ANSWER}}}}.
+
+Example:
+
+Let's solve the problem step by step.
+
+Problem: Eliza's rate per hour for the first 40 hours she works each week is $10. She also receives an overtime pay of 1.2 times her regular hourly rate. If Eliza worked for 45 hours this week, how much are her earnings for this week?
+
+Step 1: Calculate Eliza's earnings for the first 40 hours. Eliza's hourly rate is $10, so her earnings for the first 40 hours are $10/hour x 40 hours = $400.
+Step 2: Calculate Eliza's overtime pay rate. Eliza's overtime pay rate is 1.2 times her regular hourly rate, so her overtime pay rate is $10/hour x 1.2 = $12/hour.
+Step 3: Calculate Eliza's earnings for the overtime hours. Eliza worked for 45 hours, so her overtime hours are 45 hours - 40 hours = 5 hours. Her earnings for the overtime hours are $12/hour x 5 hours = $60.
+Step 4: Calculate Eliza's total earnings for the week. Eliza's total earnings for the week are her earnings for the first 40 hours plus her earnings for the overtime hours, which is $400 + $60 = $460.
+
+Answer:
+\boxed{{\text{{460}}}}
+
+question:
 {question}
 
-Remember to put your answer on its own line at the end in the form "ANSWER: $ANSWER" (without quotes) where $ANSWER is the answer to the problem, and you do not need to use a \boxed command.
-
-Reasoning:
+Remember to put your answer on its own line at the end in the form "\boxed{{\text{{$ANSWER}}}}" (without quotes), where $ANSWER is replaced by the actual answer to the problem.
 
 ```
+
+</details>
+
+---
+
+### HaluEval
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `halueval`
+- **Dataset ID**: [evalscope/HaluEval](https://modelscope.cn/datasets/evalscope/HaluEval/summary)
+- **Description**:
+  > HaluEval is a large collection of generated and human-annotated hallucinated samples for evaluating the performance of LLMs in recognizing hallucination.
+- **Task Categories**: `Hallucination`, `Knowledge`, `Yes/No`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`, `yes_ratio`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `dialogue_samples`, `qa_samples`, `summarization_samples`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+{question}
+```
+
+</details>
+
+---
+
+### HarveyNER
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `harvey_ner`
+- **Dataset ID**: [extraordinarylab/harvey-ner](https://modelscope.cn/datasets/extraordinarylab/harvey-ner/summary)
+- **Description**:
+  > HarveyNER is a dataset with fine-grained locations annotated in tweets. This dataset presents unique challenges and characterizes many complex and long location mentions in informal descriptions.
+- **Task Categories**: `Knowledge`, `NER`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`
+- **Requires LLM Judge**: No
+- **Default Shots**: 5-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+You are a named entity recognition system that identifies the following entity types:
+{entities}
+
+Process the provided text and mark all named entities with XML-style tags.
+
+For example:
+<person>John Smith</person> works at <organization>Google</organization> in <location>Mountain View</location>.
+
+Available entity tags: {entity_list}
+
+INSTRUCTIONS:
+1. Wrap your entire response in <response>...</response> tags.
+2. Inside these tags, include the original text with entity tags inserted.
+3. Do not change the original text in any way (preserve spacing, punctuation, case, etc.).
+4. Tag ALL entities you can identify using the exact tag names provided.
+5. Do not include explanations, just the tagged text.
+6. If entity spans overlap, choose the most specific entity type.
+7. Ensure every opening tag has a matching closing tag.
+
+Text to process:
+{text}
+
+```
+
+</details>
 
 ---
 
@@ -592,7 +1246,7 @@ Reasoning:
 - **Dataset ID**: [openai-mirror/healthbench](https://modelscope.cn/datasets/openai-mirror/healthbench/summary)
 - **Description**:
   > HealthBench: a new benchmark designed to better measure capabilities of AI systems for health. Built in partnership with 262 physicians who have practiced in 60 countries, HealthBench includes 5,000 realistic health conversations, each with a custom physician-created rubric to grade model responses.
-- **Task Categories**: `Knowledge`, `QA`
+- **Task Categories**: `Knowledge`, `Medical`, `QA`
 - **Evaluation Metrics**: `accuracy`, `communication_quality`, `completeness`, `context_awareness`, `instruction_following`
 - **Requires LLM Judge**: Yes
 - **Default Shots**: 0-shot
@@ -604,12 +1258,16 @@ Reasoning:
     "version": "# File version, choose from ['Consensus', 'Hard', 'All'], default to Consensus"
 }
 ```
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the question:
 
 {question}
 ```
+
+</details>
 
 ---
 
@@ -626,7 +1284,9 @@ Answer the question:
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
 
@@ -634,6 +1294,8 @@ Answer the following multiple choice question. The entire content of your respon
 
 {choices}
 ```
+
+</details>
 
 ---
 
@@ -657,10 +1319,14 @@ Answer the following multiple choice question. The entire content of your respon
     "include_multi_modal": true
 }
 ```
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 {question}
 ```
+
+</details>
 
 ---
 
@@ -670,7 +1336,7 @@ Answer the following multiple choice question. The entire content of your respon
 - **Dataset Name**: `humaneval`
 - **Dataset ID**: [opencompass/humaneval](https://modelscope.cn/datasets/opencompass/humaneval/summary)
 - **Description**:
-  > HumanEval is a benchmark for evaluating the ability of code generation models to write Python functions based on given specifications. It consists of programming tasks with a defined input-output behavior.
+  > HumanEval is a benchmark for evaluating the ability of code generation models to write Python functions based on given specifications. It consists of programming tasks with a defined input-output behavior. **By default the code is executed in local environment. We recommend using sandbox execution to safely run and evaluate the generated code, please refer to the [documentation](https://evalscope.readthedocs.io/en/latest/user_guides/sandbox.html) for more details.**
 - **Task Categories**: `Coding`
 - **Evaluation Metrics**: `Pass@1`
 - **Requires LLM Judge**: No
@@ -678,11 +1344,15 @@ Answer the following multiple choice question. The entire content of your respon
 - **Subsets**: `openai_humaneval`
 
 - **Review Timeout (seconds)**: 4
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Read the following function signature and docstring, and fully implement the function described. Your response should only contain the code for this function.
 {question}
 ```
+
+</details>
 
 ---
 
@@ -715,7 +1385,9 @@ Read the following function signature and docstring, and fully implement the fun
 - **Default Shots**: 0-shot
 - **Subsets**: `EQ`, `IQ`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 回答下面的单项选择题，请选出其中的正确答案。你的回答的最后一行应该是这样的格式："答案：LETTER"（不带引号），其中 LETTER 是 {letters} 中的一个。请在回答前进行一步步思考。
 
@@ -725,6 +1397,8 @@ Read the following function signature and docstring, and fully implement the fun
 
 ```
 
+</details>
+
 ---
 
 ### Live-Code-Bench
@@ -733,7 +1407,7 @@ Read the following function signature and docstring, and fully implement the fun
 - **Dataset Name**: `live_code_bench`
 - **Dataset ID**: [AI-ModelScope/code_generation_lite](https://modelscope.cn/datasets/AI-ModelScope/code_generation_lite/summary)
 - **Description**:
-  > Live Code Bench is a benchmark for evaluating code generation models on real-world coding tasks. It includes a variety of programming problems with test cases to assess the model's ability to generate correct and efficient code solutions.
+  > Live Code Bench is a benchmark for evaluating code generation models on real-world coding tasks. It includes a variety of programming problems with test cases to assess the model's ability to generate correct and efficient code solutions. **By default the code is executed in local environment. We recommend using sandbox execution to safely run and evaluate the generated code, please refer to the [documentation](https://evalscope.readthedocs.io/en/latest/user_guides/sandbox.html) for more details.**
 - **Task Categories**: `Coding`
 - **Evaluation Metrics**: `Pass@1`
 - **Requires LLM Judge**: No
@@ -749,7 +1423,9 @@ Read the following function signature and docstring, and fully implement the fun
     "debug": false
 }
 ```
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 ### Question:
 {question_content}
@@ -758,6 +1434,36 @@ Read the following function signature and docstring, and fully implement the fun
 
 
 ```
+
+</details>
+
+---
+
+### LogiQA
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `logi_qa`
+- **Dataset ID**: [extraordinarylab/logiqa](https://modelscope.cn/datasets/extraordinarylab/logiqa/summary)
+- **Description**:
+  > LogiQA is a dataset sourced from expert-written questions for testing human Logical reasoning.
+- **Task Categories**: `MCQ`, `Reasoning`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
+
+{question}
+
+{choices}
+```
+
+</details>
 
 ---
 
@@ -774,7 +1480,9 @@ Read the following function signature and docstring, and fully implement the fun
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 请回答单选题。要求只输出选项，不输出解释，将选项放在[]里，直接输出答案。示例：
 
@@ -791,6 +1499,8 @@ D. 扭应力
 {choices}
 ```
 
+</details>
+
 ---
 
 ### MATH-500
@@ -806,11 +1516,71 @@ D. 扭应力
 - **Default Shots**: 0-shot
 - **Subsets**: `Level 1`, `Level 2`, `Level 3`, `Level 4`, `Level 5`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 {question}
 Please reason step by step, and put your final answer within \boxed{{}}.
 ```
+
+</details>
+
+---
+
+### MathQA
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `math_qa`
+- **Dataset ID**: [extraordinarylab/math-qa](https://modelscope.cn/datasets/extraordinarylab/math-qa/summary)
+- **Description**:
+  > MathQA dataset is gathered by using a new representation language to annotate over the AQuA-RAT dataset with fully-specified operational programs.
+- **Task Categories**: `MCQ`, `Math`, `Reasoning`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Answer the following multiple choice question. The last line of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}. Think step by step before answering.
+
+{question}
+
+{choices}
+```
+
+</details>
+
+---
+
+### Med-MCQA
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `med_mcqa`
+- **Dataset ID**: [extraordinarylab/medmcqa](https://modelscope.cn/datasets/extraordinarylab/medmcqa/summary)
+- **Description**:
+  > MedMCQA is a large-scale MCQA dataset designed to address real-world medical entrance exam questions.
+- **Task Categories**: `Knowledge`, `MCQ`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
+
+{question}
+
+{choices}
+```
+
+</details>
 
 ---
 
@@ -827,11 +1597,105 @@ Please reason step by step, and put your final answer within \boxed{{}}.
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 {question}
 Please reason step by step, and put your final answer within \boxed{{}}.
 ```
+
+</details>
+
+---
+
+### MIT-Movie-Trivia
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `mit_movie_trivia`
+- **Dataset ID**: [extraordinarylab/mit-movie-trivia](https://modelscope.cn/datasets/extraordinarylab/mit-movie-trivia/summary)
+- **Description**:
+  > The MIT-Movie-Trivia dataset, originally created for slot filling, is modified by ignoring some slot types (e.g. genre, rating) and merging others (e.g. director and actor in person, and song and movie title in title) in order to keep consistent named entity types across all datasets.
+- **Task Categories**: `Knowledge`, `NER`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`
+- **Requires LLM Judge**: No
+- **Default Shots**: 5-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+You are a named entity recognition system that identifies the following entity types:
+{entities}
+
+Process the provided text and mark all named entities with XML-style tags.
+
+For example:
+<person>John Smith</person> works at <organization>Google</organization> in <location>Mountain View</location>.
+
+Available entity tags: {entity_list}
+
+INSTRUCTIONS:
+1. Wrap your entire response in <response>...</response> tags.
+2. Inside these tags, include the original text with entity tags inserted.
+3. Do not change the original text in any way (preserve spacing, punctuation, case, etc.).
+4. Tag ALL entities you can identify using the exact tag names provided.
+5. Do not include explanations, just the tagged text.
+6. If entity spans overlap, choose the most specific entity type.
+7. Ensure every opening tag has a matching closing tag.
+
+Text to process:
+{text}
+
+```
+
+</details>
+
+---
+
+### MIT-Restaurant
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `mit_restaurant`
+- **Dataset ID**: [extraordinarylab/mit-restaurant](https://modelscope.cn/datasets/extraordinarylab/mit-restaurant/summary)
+- **Description**:
+  > The MIT-Restaurant dataset is a collection of restaurant review text specifically curated for training and testing Natural Language Processing (NLP) models, particularly for Named Entity Recognition (NER). It contains sentences from real reviews, along with corresponding labels in the BIO format.
+- **Task Categories**: `Knowledge`, `NER`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`
+- **Requires LLM Judge**: No
+- **Default Shots**: 5-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+You are a named entity recognition system that identifies the following entity types:
+{entities}
+
+Process the provided text and mark all named entities with XML-style tags.
+
+For example:
+<person>John Smith</person> works at <organization>Google</organization> in <location>Mountain View</location>.
+
+Available entity tags: {entity_list}
+
+INSTRUCTIONS:
+1. Wrap your entire response in <response>...</response> tags.
+2. Inside these tags, include the original text with entity tags inserted.
+3. Do not change the original text in any way (preserve spacing, punctuation, case, etc.).
+4. Tag ALL entities you can identify using the exact tag names provided.
+5. Do not include explanations, just the tagged text.
+6. If entity spans overlap, choose the most specific entity type.
+7. Ensure every opening tag has a matching closing tag.
+
+Text to process:
+{text}
+
+```
+
+</details>
 
 ---
 
@@ -848,7 +1712,9 @@ Please reason step by step, and put your final answer within \boxed{{}}.
 - **Default Shots**: 5-shot
 - **Subsets**: `abstract_algebra`, `anatomy`, `astronomy`, `business_ethics`, `clinical_knowledge`, `college_biology`, `college_chemistry`, `college_computer_science`, `college_mathematics`, `college_medicine`, `college_physics`, `computer_security`, `conceptual_physics`, `econometrics`, `electrical_engineering`, `elementary_mathematics`, `formal_logic`, `global_facts`, `high_school_biology`, `high_school_chemistry`, `high_school_computer_science`, `high_school_european_history`, `high_school_geography`, `high_school_government_and_politics`, `high_school_macroeconomics`, `high_school_mathematics`, `high_school_microeconomics`, `high_school_physics`, `high_school_psychology`, `high_school_statistics`, `high_school_us_history`, `high_school_world_history`, `human_aging`, `human_sexuality`, `international_law`, `jurisprudence`, `logical_fallacies`, `machine_learning`, `management`, `marketing`, `medical_genetics`, `miscellaneous`, `moral_disputes`, `moral_scenarios`, `nutrition`, `philosophy`, `prehistory`, `professional_accounting`, `professional_law`, `professional_medicine`, `professional_psychology`, `public_relations`, `security_studies`, `sociology`, `us_foreign_policy`, `virology`, `world_religions`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the following multiple choice question. The last line of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}. Think step by step before answering.
 
@@ -856,6 +1722,8 @@ Answer the following multiple choice question. The last line of your response sh
 
 {choices}
 ```
+
+</details>
 
 ---
 
@@ -872,7 +1740,9 @@ Answer the following multiple choice question. The last line of your response sh
 - **Default Shots**: 5-shot
 - **Subsets**: `biology`, `business`, `chemistry`, `computer science`, `economics`, `engineering`, `health`, `history`, `law`, `math`, `other`, `philosophy`, `physics`, `psychology`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the following multiple choice question. The last line of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}. Think step by step before answering.
 
@@ -882,6 +1752,8 @@ Options:
 {choices}
 
 ```
+
+</details>
 
 ---
 
@@ -898,7 +1770,9 @@ Options:
 - **Default Shots**: 0-shot
 - **Subsets**: `abstract_algebra`, `anatomy`, `astronomy`, `business_ethics`, `clinical_knowledge`, `college_biology`, `college_chemistry`, `college_computer_science`, `college_mathematics`, `college_medicine`, `college_physics`, `computer_security`, `conceptual_physics`, `econometrics`, `electrical_engineering`, `elementary_mathematics`, `formal_logic`, `global_facts`, `high_school_biology`, `high_school_chemistry`, `high_school_computer_science`, `high_school_european_history`, `high_school_geography`, `high_school_government_and_politics`, `high_school_macroeconomics`, `high_school_mathematics`, `high_school_microeconomics`, `high_school_physics`, `high_school_psychology`, `high_school_statistics`, `high_school_us_history`, `high_school_world_history`, `human_aging`, `human_sexuality`, `international_law`, `jurisprudence`, `logical_fallacies`, `machine_learning`, `management`, `marketing`, `medical_genetics`, `miscellaneous`, `moral_disputes`, `moral_scenarios`, `nutrition`, `philosophy`, `prehistory`, `professional_accounting`, `professional_law`, `professional_medicine`, `professional_psychology`, `public_relations`, `security_studies`, `sociology`, `us_foreign_policy`, `virology`, `world_religions`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the following multiple choice question. The last line of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}. Think step by step before answering.
 
@@ -906,6 +1780,36 @@ Answer the following multiple choice question. The last line of your response sh
 
 {choices}
 ```
+
+</details>
+
+---
+
+### MRI-MCQA
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `mri_mcqa`
+- **Dataset ID**: [extraordinarylab/mri-mcqa](https://modelscope.cn/datasets/extraordinarylab/mri-mcqa/summary)
+- **Description**:
+  > MRI-MCQA is a benchmark composed by multiple-choice questions related to Magnetic Resonance Imaging (MRI).
+- **Task Categories**: `Knowledge`, `MCQ`, `Medical`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
+
+{question}
+
+{choices}
+```
+
+</details>
 
 ---
 
@@ -931,6 +1835,34 @@ Answer the following multiple choice question. The last line of your response sh
 
 ---
 
+### MusicTrivia
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `music_trivia`
+- **Dataset ID**: [extraordinarylab/music-trivia](https://modelscope.cn/datasets/extraordinarylab/music-trivia/summary)
+- **Description**:
+  > MusicTrivia is a curated dataset of multiple-choice questions covering both classical and modern music topics. It includes questions about composers, musical periods, and popular artists, designed for evaluating factual recall and domain-specific music knowledge.
+- **Task Categories**: `Knowledge`, `MCQ`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
+
+{question}
+
+{choices}
+```
+
+</details>
+
+---
+
 ### MuSR
 
 [Back to Top](#llm-benchmarks)
@@ -944,7 +1876,9 @@ Answer the following multiple choice question. The last line of your response sh
 - **Default Shots**: 0-shot
 - **Subsets**: `murder_mysteries`, `object_placements`, `team_allocation`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the following multiple choice question. The last line of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}. Think step by step before answering.
 
@@ -952,6 +1886,8 @@ Answer the following multiple choice question. The last line of your response sh
 
 {choices}
 ```
+
+</details>
 
 ---
 
@@ -961,7 +1897,7 @@ Answer the following multiple choice question. The last line of your response sh
 - **Dataset Name**: `needle_haystack`
 - **Dataset ID**: [AI-ModelScope/Needle-in-a-Haystack-Corpus](https://modelscope.cn/datasets/AI-ModelScope/Needle-in-a-Haystack-Corpus/summary)
 - **Description**:
-  > Needle in a Haystack is a benchmark focused on information retrieval tasks. It requires the model to find specific information within a large corpus of text. [Usage Example](https://evalscope.readthedocs.io/zh-cn/latest/third_party/needle_haystack.html)
+  > Needle in a Haystack is a benchmark focused on information retrieval tasks. It requires the model to find specific information within a large corpus of text. [Usage Example](https://evalscope.readthedocs.io/en/latest/third_party/needle_haystack.html)
 - **Task Categories**: `LongContext`, `Retrieval`
 - **Evaluation Metrics**: `acc`
 - **Requires LLM Judge**: Yes
@@ -985,11 +1921,17 @@ Answer the following multiple choice question. The last line of your response sh
     "show_score": false
 }
 ```
-- **System Prompt**: 
+- **System Prompt**:
+<details><summary>View</summary>
+
 ```text
 You are a helpful AI bot that answers questions for a user. Keep your response short and direct
 ```
-- **Prompt Template**: 
+
+</details>
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Please read the following text and answer the question below.
 
@@ -1003,6 +1945,105 @@ Please read the following text and answer the question below.
 
 Don't give information outside the document or repeat your findings.
 ```
+
+</details>
+
+---
+
+### OntoNotes5
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `ontonotes5`
+- **Dataset ID**: [extraordinarylab/ontonotes5](https://modelscope.cn/datasets/extraordinarylab/ontonotes5/summary)
+- **Description**:
+  > OntoNotes Release 5.0 is a large, multilingual corpus containing text in English, Chinese, and Arabic across various genres like news, weblogs, and broadcast conversations. It is richly annotated with multiple layers of linguistic information, including syntax, predicate-argument structure, word sense, named entities, and coreference to support research and development in natural language processing.
+- **Task Categories**: `Knowledge`, `NER`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`
+- **Requires LLM Judge**: No
+- **Default Shots**: 5-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+You are a named entity recognition system that identifies the following entity types:
+{entities}
+
+Process the provided text and mark all named entities with XML-style tags.
+
+For example:
+<person>John Smith</person> works at <organization>Google</organization> in <location>Mountain View</location>.
+
+Available entity tags: {entity_list}
+
+INSTRUCTIONS:
+1. Wrap your entire response in <response>...</response> tags.
+2. Inside these tags, include the original text with entity tags inserted.
+3. Do not change the original text in any way (preserve spacing, punctuation, case, etc.).
+4. Tag ALL entities you can identify using the exact tag names provided.
+5. Do not include explanations, just the tagged text.
+6. If entity spans overlap, choose the most specific entity type.
+7. Ensure every opening tag has a matching closing tag.
+
+Text to process:
+{text}
+
+```
+
+</details>
+
+---
+
+### PIQA
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `piqa`
+- **Dataset ID**: [extraordinarylab/piqa](https://modelscope.cn/datasets/extraordinarylab/piqa/summary)
+- **Description**:
+  > PIQA addresses the challenging task of reasoning about physical commonsense in natural language.
+- **Task Categories**: `Commonsense`, `MCQ`, `Reasoning`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
+
+{question}
+
+{choices}
+```
+
+</details>
+
+---
+
+### PolyMath
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `poly_math`
+- **Dataset ID**: [evalscope/PolyMath](https://modelscope.cn/datasets/evalscope/PolyMath/summary)
+- **Description**:
+  > PolyMath is a multilingual mathematical reasoning benchmark covering 18 languages and 4 easy-to-hard difficulty levels, with 9,000 high-quality problem samples. Our benchmark ensures difficulty comprehensiveness, language diversity, and high-quality translation, making it a highly discriminative multilingual mathematical benchmark in the era of reasoning LLMs.
+- **Task Categories**: `Math`, `MultiLingual`, `Reasoning`
+- **Evaluation Metrics**: `{'acc': {'numeric': True}}`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `ar`, `bn`, `de`, `en`, `es`, `fr`, `id`, `it`, `ja`, `ko`, `ms`, `pt`, `ru`, `sw`, `te`, `th`, `vi`, `zh`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+{question}
+```
+
+</details>
 
 ---
 
@@ -1019,7 +2060,9 @@ Don't give information outside the document or repeat your findings.
 - **Default Shots**: 0-shot
 - **Subsets**: `gsm8k`, `math`, `olympiadbench`, `omnimath`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 CThe following is a math problem and a solution (split into paragraphs, enclosed with tags and indexed from 0):
 
@@ -1037,6 +2080,61 @@ Please put your final answer (i.e., the index) in oxed{{}}.
 
 ```
 
+</details>
+
+---
+
+### PubMedQA
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `pubmedqa`
+- **Dataset ID**: [extraordinarylab/pubmed-qa](https://modelscope.cn/datasets/extraordinarylab/pubmed-qa/summary)
+- **Description**:
+  > PubMedQA reasons over biomedical research texts to answer the multiple-choice questions.
+- **Task Categories**: `Knowledge`, `Yes/No`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `maybe_ratio`, `precision`, `recall`, `yes_ratio`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+{question}
+Please answer YES or NO or MAYBE without an explanation.
+```
+
+</details>
+
+---
+
+### QASC
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `qasc`
+- **Dataset ID**: [extraordinarylab/qasc](https://modelscope.cn/datasets/extraordinarylab/qasc/summary)
+- **Description**:
+  > QASC is a question-answering dataset with a focus on sentence composition. It consists of 9,980 8-way multiple-choice questions about grade school science.
+- **Task Categories**: `Knowledge`, `MCQ`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
+
+{question}
+
+{choices}
+```
+
+</details>
+
 ---
 
 ### RACE
@@ -1052,7 +2150,9 @@ Please put your final answer (i.e., the index) in oxed{{}}.
 - **Default Shots**: 3-shot
 - **Subsets**: `high`, `middle`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the following multiple choice question. The last line of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}. Think step by step before answering.
 
@@ -1060,6 +2160,36 @@ Answer the following multiple choice question. The last line of your response sh
 
 {choices}
 ```
+
+</details>
+
+---
+
+### SciQ
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `sciq`
+- **Dataset ID**: [extraordinarylab/sciq](https://modelscope.cn/datasets/extraordinarylab/sciq/summary)
+- **Description**:
+  > The SciQ dataset contains crowdsourced science exam questions about Physics, Chemistry and Biology, among others. For the majority of the questions, an additional paragraph with supporting evidence for the correct answer is provided.
+- **Task Categories**: `Knowledge`, `MCQ`, `ReadingComprehension`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
+
+{question}
+
+{choices}
+```
+
+</details>
 
 ---
 
@@ -1076,12 +2206,44 @@ Answer the following multiple choice question. The last line of your response sh
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the question:
 
 {question}
 ```
+
+</details>
+
+---
+
+### SIQA
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `siqa`
+- **Dataset ID**: [extraordinarylab/siqa](https://modelscope.cn/datasets/extraordinarylab/siqa/summary)
+- **Description**:
+  > Social Interaction QA (SIQA) is a question-answering benchmark for testing social commonsense intelligence. Contrary to many prior benchmarks that focus on physical or taxonomic knowledge, Social IQa focuses on reasoning about people's actions and their social implications.
+- **Task Categories**: `Commonsense`, `MCQ`, `Reasoning`
+- **Evaluation Metrics**: `acc`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
+
+{question}
+
+{choices}
+```
+
+</details>
 
 ---
 
@@ -1098,7 +2260,9 @@ Answer the question:
 - **Default Shots**: 0-shot
 - **Subsets**: `Aeronautical and Astronautical Science and Technology`, `Agricultural Engineering`, `Animal Husbandry`, `Applied Economics`, `Aquaculture`, `Architecture`, `Art Studies`, `Astronomy`, `Atmospheric Science`, `Basic Medicine`, `Biology`, `Business Administration`, `Chemical Engineering and Technology`, `Chemistry`, `Civil Engineering`, `Clinical Medicine`, `Computer Science and Technology`, `Control Science and Engineering`, `Crop Science`, `Education`, `Electrical Engineering`, `Electronic Science and Technology`, `Environmental Science and Engineering`, `Food Science and Engineering`, `Forestry Engineering`, `Forestry`, `Geography`, `Geological Resources and Geological Engineering`, `Geology`, `Geophysics`, `History`, `Hydraulic Engineering`, `Information and Communication Engineering`, `Instrument Science and Technology`, `Journalism and Communication`, `Language and Literature`, `Law`, `Library, Information and Archival Management`, `Management Science and Engineering`, `Materials Science and Engineering`, `Mathematics`, `Mechanical Engineering`, `Mechanics`, `Metallurgical Engineering`, `Military Science`, `Mining Engineering`, `Musicology`, `Naval Architecture and Ocean Engineering`, `Nuclear Science and Technology`, `Oceanography`, `Optical Engineering`, `Petroleum and Natural Gas Engineering`, `Pharmacy`, `Philosophy`, `Physical Education`, `Physical Oceanography`, `Physics`, `Political Science`, `Power Engineering and Engineering Thermophysics`, `Psychology`, `Public Administration`, `Public Health and Preventive Medicine`, `Sociology`, `Stomatology`, `Surveying and Mapping Science and Technology`, `Systems Science`, `Textile Science and Engineering`, `Theoretical Economics`, `Traditional Chinese Medicine`, `Transportation Engineering`, `Veterinary Medicine`, `Weapon Science and Technology`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the following multiple choice question. The last line of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}. Think step by step before answering.
 
@@ -1106,6 +2270,8 @@ Answer the following multiple choice question. The last line of your response sh
 
 {choices}
 ```
+
+</details>
 
 ---
 
@@ -1115,7 +2281,7 @@ Answer the following multiple choice question. The last line of your response sh
 - **Dataset Name**: `tau_bench`
 - **Dataset ID**: [tau-bench](https://github.com/sierra-research/tau-bench)
 - **Description**:
-  > A benchmark emulating dynamic conversations between a user (simulated by language models) and a language agent provided with domain-specific API tools and policy guidelines. Please install it with `pip install git+https://github.com/sierra-research/tau-bench` before evaluating and set a user model. [Usage Example](https://evalscope.readthedocs.io/zh-cn/latest/third_party/tau_bench.html)
+  > A benchmark emulating dynamic conversations between a user (simulated by language models) and a language agent provided with domain-specific API tools and policy guidelines. Please install it with `pip install git+https://github.com/sierra-research/tau-bench` before evaluating and set a user model. [Usage Example](https://evalscope.readthedocs.io/en/latest/third_party/tau_bench.html)
 - **Task Categories**: `FunctionCalling`, `Reasoning`
 - **Evaluation Metrics**: `Pass^1`
 - **Requires LLM Judge**: No
@@ -1143,7 +2309,7 @@ Answer the following multiple choice question. The last line of your response sh
 - **Dataset Name**: `tool_bench`
 - **Dataset ID**: [AI-ModelScope/ToolBench-Static](https://modelscope.cn/datasets/AI-ModelScope/ToolBench-Static/summary)
 - **Description**:
-  > ToolBench is a benchmark for evaluating AI models on tool use tasks. It includes various subsets such as in-domain and out-of-domain, each with its own set of problems that require step-by-step reasoning to arrive at the correct answer. [Usage Example](https://evalscope.readthedocs.io/zh-cn/latest/third_party/toolbench.html)
+  > ToolBench is a benchmark for evaluating AI models on tool use tasks. It includes various subsets such as in-domain and out-of-domain, each with its own set of problems that require step-by-step reasoning to arrive at the correct answer. [Usage Example](https://evalscope.readthedocs.io/en/latest/third_party/toolbench.html)
 - **Task Categories**: `FunctionCalling`, `Reasoning`
 - **Evaluation Metrics**: `Act.EM`, `F1`, `HalluRate`, `Plan.EM`, `Rouge-L`
 - **Requires LLM Judge**: No
@@ -1166,7 +2332,9 @@ Answer the following multiple choice question. The last line of your response sh
 - **Default Shots**: 0-shot
 - **Subsets**: `rc.wikipedia`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Read the content and answer the following question.
 
@@ -1177,6 +2345,8 @@ Question: {question}
 Keep your The last line of your response should be of the form "ANSWER: $ANSWER" (without quotes) where $ANSWER is the answer to the problem.
 
 ```
+
+</details>
 
 ---
 
@@ -1199,7 +2369,9 @@ Keep your The last line of your response should be of the form "ANSWER: $ANSWER"
     "multiple_correct": false
 }
 ```
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
 
@@ -1207,6 +2379,8 @@ Answer the following multiple choice question. The entire content of your respon
 
 {choices}
 ```
+
+</details>
 
 ---
 
@@ -1223,7 +2397,9 @@ Answer the following multiple choice question. The entire content of your respon
 - **Default Shots**: 0-shot
 - **Subsets**: `default`
 
-- **Prompt Template**: 
+- **Prompt Template**:
+<details><summary>View</summary>
+
 ```text
 Answer the following multiple choice question. The entire content of your response should be of the following format: 'ANSWER: $LETTER' (without quotes) where LETTER is one of {letters}.
 
@@ -1231,3 +2407,50 @@ Answer the following multiple choice question. The entire content of your respon
 
 {choices}
 ```
+
+</details>
+
+---
+
+### WNUT2017
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `wnut2017`
+- **Dataset ID**: [extraordinarylab/wnut2017](https://modelscope.cn/datasets/extraordinarylab/wnut2017/summary)
+- **Description**:
+  > The WNUT2017 dataset is a collection of user-generated text from various social media platforms, like Twitter and YouTube, specifically designed for a named-entity recognition task.
+- **Task Categories**: `Knowledge`, `NER`
+- **Evaluation Metrics**: `accuracy`, `f1_score`, `precision`, `recall`
+- **Requires LLM Judge**: No
+- **Default Shots**: 5-shot
+- **Subsets**: `default`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+You are a named entity recognition system that identifies the following entity types:
+{entities}
+
+Process the provided text and mark all named entities with XML-style tags.
+
+For example:
+<person>John Smith</person> works at <organization>Google</organization> in <location>Mountain View</location>.
+
+Available entity tags: {entity_list}
+
+INSTRUCTIONS:
+1. Wrap your entire response in <response>...</response> tags.
+2. Inside these tags, include the original text with entity tags inserted.
+3. Do not change the original text in any way (preserve spacing, punctuation, case, etc.).
+4. Tag ALL entities you can identify using the exact tag names provided.
+5. Do not include explanations, just the tagged text.
+6. If entity spans overlap, choose the most specific entity type.
+7. Ensure every opening tag has a matching closing tag.
+
+Text to process:
+{text}
+
+```
+
+</details>
