@@ -80,6 +80,9 @@ class AsyncJupyterClient:
                 result = await self.kc.execute_interactive(code, output_hook=hook, timeout=self.timeout)
             except TimeoutError as te:
                 logger.error(f"[session_id: {self.session_id}] Timeout waiting for Jupyter message. code: '{code}'\nerror: {te}\ntraceback: {traceback.format_exc()}")
+                logger.info(f"[session_id: {self.session_id}] Interrupting kernel due to timeout.")
+                await self.km.interrupt_kernel()
+                logger.info(f"[session_id: {self.session_id}] Kernel interrupted.")
                 return f"Execution timeout after {self.timeout} seconds."
             status = result['content']['status']
             cell_result['status'] = status
@@ -325,6 +328,7 @@ if __name__ == "__main__":
         "for i in range(3):\n    print(i)",
         "1 / 0",  # This will raise an error
         "print('Hello, World!')",
+        "time.sleep(130)",  # This will timeout
         "a * b",  # Should be 200 if state is preserved
     ]
 
