@@ -215,6 +215,10 @@ class ToolUseModel(OpenAICompatibleAPI):
                 tool_response_msgs.append(msg)
                 continue
 
+            # 如果fn_args中有除了code之外的参数，把logger打印出来，方便调试
+            if any(k != 'code' for k in fn_args):
+                logger.error(f"[session_id: {session_id}] Invalid tool call argument. Tool call: {tool_call}, fn_args: {fn_args}")
+            
             # fn_res = json.dumps(fn(**fn_args))
             fn_res = fn(session_id=session_id, **fn_args)
 
