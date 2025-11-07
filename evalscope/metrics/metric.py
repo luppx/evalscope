@@ -1,9 +1,11 @@
 import json
+import os
 from collections import defaultdict
-from typing import List
+from typing import Dict, List
 
-from evalscope.api.metric import Aggregator, AggScore, Metric, SampleScore, T2IMetric
+from evalscope.api.metric import Aggregator, AggScore, Metric, SampleScore, SingletonMetric, T2IMetric
 from evalscope.api.registry import register_aggregation, register_metric
+from evalscope.utils.import_utils import check_import
 from .metrics import mean
 
 
@@ -149,6 +151,61 @@ class ANLS(Metric):
                     question_result = 0.0
             res.append(question_result)
         return res
+
+
+@register_metric(name='bertscore')
+class BertScore(SingletonMetric):
+
+    def _init_once(self, model_id_or_path: str = 'google-bert/bert-base-chinese', **kwargs):
+        """BertScore metric.
+
+        Args:
+            model_id_or_path (str, optional): The model ID on modelscope or path to the pre-trained model.
+                Defaults to 'google-bert/bert-base-chinese'.
+        """
+        check_import('torch', 'torch', raise_error=True, feature_name='BertScore Metric')
+
+        from .bert_score.scorer import BERTScorer
+        self.scorer = BERTScorer(model_id_or_path=model_id_or_path, batch_size=1024, **kwargs)
+
+    def apply(self, predictions: List[str], references: List[str]) -> List[float]:
+        _, _, F1 = self.scorer.score(predictions, references)
+        return [round(f1.item(), 6) for f1 in F1]
+
+
+@register_metric(name='comet')
+class COMETScore(SingletonMetric):
+
+    def _init_once(self, model_id_or_path: str = 'evalscope/wmt22-comet-da'):
+        """COMETScore metric.
+
+        Args:
+            model_name (str, optional): The model name on huggingface.
+                Defaults to 'evalscope/wmt22-comet-da'.
+        """
+        check_import('comet', 'unbabel-comet', raise_error=True, feature_name='COMETScore Metric')
+
+        from comet import load_from_checkpoint
+        from modelscope import snapshot_download
+
+        self.model_name = model_id_or_path
+        model_path = snapshot_download(model_id_or_path)
+        checkpoint_path = os.path.join(model_path, 'checkpoints', 'model.ckpt')
+        self.comet_scorer = load_from_checkpoint(checkpoint_path)
+
+    def apply(self, samples: List[Dict[str, str]]) -> List[float]:
+        """Apply COMET scoring."""
+        import torch
+
+        model_output = self.comet_scorer.predict(
+            samples=samples,
+            batch_size=1024,
+            gpus=1 if torch.cuda.is_available() else 0,
+            progress_bar=False,
+        )
+        scores = model_output.scores if hasattr(model_output, 'scores') else [model_output.system_score] * len(samples)
+
+        return [round(score, 6) for score in scores]
 
 
 # ##################

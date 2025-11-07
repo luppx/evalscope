@@ -138,6 +138,8 @@ class Tags:
     YES_NO = 'Yes/No'
     HALLUCINATION = 'Hallucination'
     MEDICAL = 'Medical'
+    AGENT = 'Agent'
+    MT = 'MachineTranslation'
 
 
 class FileConstants:

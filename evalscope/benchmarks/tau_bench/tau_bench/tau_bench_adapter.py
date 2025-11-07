@@ -1,8 +1,7 @@
-import importlib
 from collections import defaultdict
 from typing import Dict, List
 
-from evalscope.api.benchmark import BenchmarkMeta, DefaultDataAdapter
+from evalscope.api.benchmark import AgentAdapter, BenchmarkMeta
 from evalscope.api.dataset import Sample
 from evalscope.api.dataset.dataset import DatasetDict
 from evalscope.api.dataset.loader import DictDataLoader
@@ -22,7 +21,7 @@ logger = get_logger()
     BenchmarkMeta(
         name='tau_bench',
         pretty_name='τ-bench',
-        tags=[Tags.FUNCTION_CALLING, Tags.REASONING],
+        tags=[Tags.FUNCTION_CALLING, Tags.REASONING, Tags.AGENT],
         description='A benchmark emulating dynamic conversations between a user (simulated by language models) '
         'and a language agent provided with domain-specific API tools and policy guidelines. '
         'Please install it with `pip install git+https://github.com/sierra-research/tau-bench` '
@@ -42,7 +41,7 @@ logger = get_logger()
         }
     )
 )
-class TauBenchAdapter(DefaultDataAdapter):
+class TauBenchAdapter(AgentAdapter):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

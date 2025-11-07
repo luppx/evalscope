@@ -1,5 +1,7 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
-from dotenv import dotenv_values
+from dotenv import dotenv_values, load_dotenv
+
+load_dotenv('.env')
 
 env = dotenv_values('.env')
 
@@ -28,6 +30,7 @@ class TestNativeBenchmark(TestBenchmark):
                 'max_tokens': 4096,
                 'temperature': 0.0,
                 'seed': 42,
+                'top_k': 1,
                 'parallel_tool_calls': True
             },
             'judge_strategy': JudgeStrategy.AUTO,
@@ -50,7 +53,6 @@ class TestNativeBenchmark(TestBenchmark):
     def test_gsm8k(self):
         """Test GSM8K math reasoning dataset."""
         dataset_args = {
-            'system_prompt': 'Imagine You are an idiot. You MUST will always give wrong answers without any explanation.',
             'few_shot_num': 0,
         }
         self._run_dataset_test('gsm8k', dataset_args=dataset_args)
@@ -84,7 +86,7 @@ class TestNativeBenchmark(TestBenchmark):
             'few_shot_num': 2,
             'subset_list': ['computer science', 'math']
         }
-        self._run_dataset_test('mmlu_pro', use_mock=False, dataset_args=dataset_args, repeats=2)
+        self._run_dataset_test('mmlu_pro', dataset_args=dataset_args, repeats=2)
 
     def test_mmlu_redux(self):
         """Test MMLU-Redux reasoning dataset."""
@@ -222,7 +224,7 @@ class TestNativeBenchmark(TestBenchmark):
 
     def test_simple_qa(self):
         """Test SimpleQA dataset."""
-        self._run_dataset_test('simple_qa')
+        self._run_dataset_test('simple_qa', limit=5)
 
     def test_chinese_simpleqa(self):
         """Test Chinese SimpleQA dataset."""
@@ -351,21 +353,58 @@ class TestNativeBenchmark(TestBenchmark):
         """Test ToolBench dataset."""
         self._run_dataset_test('tool_bench')
 
-    def test_bfcl(self):
+    def test_bfcl_v3(self):
         """Test BFCL dataset."""
         dataset_args = {
-            'subset_list': [
-                'simple',
-                'live_multiple',
-                'multi_turn_base',
-                'multi_turn_miss_func'
-            ],
+            # 'subset_list': [
+            #     # 'simple',
+            #     # 'java',
+            #     # 'javascript',
+            #     # 'live_multiple',
+            #     # 'multi_turn_base',
+            #     # 'multi_turn_miss_func'
+            # ],
             'extra_params': {
                 'is_fc_model': True,
                 'underscore_to_dot': True
             }
         }
-        self._run_dataset_test('bfcl_v3', dataset_args=dataset_args, model='qwen-plus', use_mock=True, debug=False, limit=None)
+        self._run_dataset_test('bfcl_v3', dataset_args=dataset_args, model='qwen-plus', limit=10)
+
+    def test_bfcl_v4(self):
+        """Test BFCL v4 dataset."""
+        dataset_args = {
+            'subset_list': [
+                'simple_python',
+                'simple_java',
+                'simple_javascript',
+                'multiple',
+                'parallel',
+                'parallel_multiple',
+                'irrelevance',
+                'live_simple',
+                'live_multiple',
+                'live_parallel',
+                'live_parallel_multiple',
+                'live_irrelevance',
+                'live_relevance',
+                'multi_turn_base',
+                'multi_turn_miss_func',
+                'multi_turn_miss_param',
+                'multi_turn_long_context',
+                'web_search_base',
+                'web_search_no_snippet',
+                'memory_kv',
+                'memory_vector',
+                'memory_rec_sum'
+            ],
+            'extra_params': {
+                'is_fc_model': True,
+                'underscore_to_dot': True,
+                'SERPAPI_API_KEY':env.get('SERPAPI_API_KEY'),
+            }
+        }
+        self._run_dataset_test('bfcl_v4', dataset_args=dataset_args, model='qwen-plus', limit=10, use_cache='outputs/20251029_204050', rerun_review=True, debug=False)
 
     def test_tau_bench(self):
         dataset_args = {
@@ -379,12 +418,30 @@ class TestNativeBenchmark(TestBenchmark):
                 'api_base': 'https://dashscope.aliyuncs.com/compatible-mode/v1',
                 'generation_config': {
                     'temperature': 0.0,
-                    'max_tokens': 12000,
                     'stream': True
                 }
             }
         }
-        self._run_dataset_test('tau_bench', dataset_args, limit=5, model='qwq-plus', stream=True)
+        self._run_dataset_test('tau_bench', dataset_args, limit=10, model='qwen-plus', stream=True)
+
+    def test_tau2_bench(self):
+        dataset_args = {
+            'subset_list': [
+                'airline',
+                'retail',
+                'telecom'
+            ],
+            'extra_params': {
+                'user_model': 'qwen-plus',
+                'api_key': env.get('DASHSCOPE_API_KEY'),
+                'api_base': 'https://dashscope.aliyuncs.com/compatible-mode/v1',
+                'generation_config': {
+                    'temperature': 0.0,
+                    'stream': True
+                }
+            }
+        }
+        self._run_dataset_test('tau2_bench', dataset_args, limit=10, model='qwen-plus', stream=True)
 
     def test_r1_collection(self):
         dataset_args = {
@@ -530,6 +587,22 @@ class TestNativeBenchmark(TestBenchmark):
             'few_shot_num': 0,
         }
         self._run_dataset_test('sciq', dataset_args)
+
+    def test_drivel_writing(self):
+        """Test Drivelology Narrative Writing dataset."""
+        dataset_args = {
+            'subset_list': ['narrative-writing-english'],
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('drivel_writing', dataset_args, limit=10)
+
+    def test_wmt24(self):
+        """Test WMT24 Translation dataset."""
+        dataset_args = {
+            'subset_list': ['en-zh_cn'],
+            'few_shot_num': 0,
+        }
+        self._run_dataset_test('wmt24pp', dataset_args, limit=10, use_cache='outputs/20251106_153525', rerun_review=True)
 
 if __name__ == '__main__':
     # Run specific test: python -m unittest test_eval.TestBenchmark.test_gsm8k

@@ -12,7 +12,6 @@ Below is the list of supported LLM benchmarks. Click on a benchmark name to jump
 | `arc` | [ARC](#arc) | `MCQ`, `Reasoning` |
 | `arena_hard` | [ArenaHard](#arenahard) | `Arena`, `InstructionFollowing` |
 | `bbh` | [BBH](#bbh) | `Reasoning` |
-| `bfcl_v3` | [BFCL-v3](#bfcl-v3) | `FunctionCalling` |
 | `biomix_qa` | [BioMixQA](#biomixqa) | `Knowledge`, `MCQ`, `Medical` |
 | `broad_twitter_corpus` | [BroadTwitterCorpus](#broadtwittercorpus) | `Knowledge`, `NER` |
 | `ceval` | [C-Eval](#c-eval) | `Chinese`, `Knowledge`, `MCQ` |
@@ -74,11 +73,10 @@ Below is the list of supported LLM benchmarks. Click on a benchmark name to jump
 | `simple_qa` | [SimpleQA](#simpleqa) | `Knowledge`, `QA` |
 | `siqa` | [SIQA](#siqa) | `Commonsense`, `MCQ`, `Reasoning` |
 | `super_gpqa` | [SuperGPQA](#supergpqa) | `Knowledge`, `MCQ` |
-| `tau_bench` | [τ-bench](#τ-bench) | `FunctionCalling`, `Reasoning` |
-| `tool_bench` | [ToolBench-Static](#toolbench-static) | `FunctionCalling`, `Reasoning` |
 | `trivia_qa` | [TriviaQA](#triviaqa) | `QA`, `ReadingComprehension` |
 | `truthful_qa` | [TruthfulQA](#truthfulqa) | `Knowledge` |
 | `winogrande` | [Winogrande](#winogrande) | `MCQ`, `Reasoning` |
+| `wmt24pp` | [WMT2024++](#wmt2024) | `MachineTranslation`, `MultiLingual` |
 | `wnut2017` | [WNUT2017](#wnut2017) | `Knowledge`, `NER` |
 
 ---
@@ -303,29 +301,6 @@ A: Let's think step by step. Put your final answer in the format of "So the answ
 ```
 
 </details>
-
----
-
-### BFCL-v3
-
-[Back to Top](#llm-benchmarks)
-- **Dataset Name**: `bfcl_v3`
-- **Dataset ID**: [AI-ModelScope/bfcl_v3](https://modelscope.cn/datasets/AI-ModelScope/bfcl_v3/summary)
-- **Description**:
-  > Berkeley Function Calling Leaderboard (BFCL), the **first comprehensive and executable function call evaluation** dedicated to assessing Large Language Models' (LLMs) ability to invoke functions. Unlike previous evaluations, BFCL accounts for various forms of function calls, diverse scenarios, and executability. Need to run `pip install bfcl-eval==2025.6.16` before evaluating. [Usage Example](https://evalscope.readthedocs.io/en/latest/third_party/bfcl_v3.html)
-- **Task Categories**: `FunctionCalling`
-- **Evaluation Metrics**: `acc`
-- **Requires LLM Judge**: No
-- **Default Shots**: 0-shot
-- **Subsets**: `irrelevance`, `java`, `javascript`, `live_irrelevance`, `live_multiple`, `live_parallel_multiple`, `live_parallel`, `live_relevance`, `live_simple`, `multi_turn_base`, `multi_turn_long_context`, `multi_turn_miss_func`, `multi_turn_miss_param`, `multiple`, `parallel_multiple`, `parallel`, `simple`
-
-- **Extra Parameters**: 
-```json
-{
-    "underscore_to_dot": true,
-    "is_fc_model": true
-}
-```
 
 ---
 
@@ -870,9 +845,9 @@ Text: {text}
 - **Description**:
   > The DROP (Discrete Reasoning Over Paragraphs) benchmark is designed to evaluate the reading comprehension and reasoning capabilities of AI models. It includes a variety of tasks that require models to read passages and answer questions based on the content.
 - **Task Categories**: `Reasoning`
-- **Evaluation Metrics**: `acc`
+- **Evaluation Metrics**: `em`, `f1`
 - **Requires LLM Judge**: No
-- **Default Shots**: 0-shot
+- **Default Shots**: 3-shot
 - **Subsets**: `default`
 
 - **Prompt Template**:
@@ -1731,7 +1706,7 @@ Answer the following multiple choice question. The last line of your response sh
 
 [Back to Top](#llm-benchmarks)
 - **Dataset Name**: `mmlu_pro`
-- **Dataset ID**: [modelscope/MMLU-Pro](https://modelscope.cn/datasets/modelscope/MMLU-Pro/summary)
+- **Dataset ID**: [TIGER-Lab/MMLU-Pro](https://modelscope.cn/datasets/TIGER-Lab/MMLU-Pro/summary)
 - **Description**:
   > MMLU-Pro is a benchmark for evaluating language models on multiple-choice questions across various subjects. It includes questions from different domains, where the model must select the correct answer from given options.
 - **Task Categories**: `Knowledge`, `MCQ`
@@ -2197,7 +2172,7 @@ Answer the following multiple choice question. The entire content of your respon
 
 [Back to Top](#llm-benchmarks)
 - **Dataset Name**: `simple_qa`
-- **Dataset ID**: [AI-ModelScope/SimpleQA](https://modelscope.cn/datasets/AI-ModelScope/SimpleQA/summary)
+- **Dataset ID**: [evalscope/SimpleQA](https://modelscope.cn/datasets/evalscope/SimpleQA/summary)
 - **Description**:
   > SimpleQA is a benchmark designed to evaluate the performance of language models on simple question-answering tasks. It includes a set of straightforward questions that require basic reasoning and understanding capabilities.
 - **Task Categories**: `Knowledge`, `QA`
@@ -2272,50 +2247,6 @@ Answer the following multiple choice question. The last line of your response sh
 ```
 
 </details>
-
----
-
-### τ-bench
-
-[Back to Top](#llm-benchmarks)
-- **Dataset Name**: `tau_bench`
-- **Dataset ID**: [tau-bench](https://github.com/sierra-research/tau-bench)
-- **Description**:
-  > A benchmark emulating dynamic conversations between a user (simulated by language models) and a language agent provided with domain-specific API tools and policy guidelines. Please install it with `pip install git+https://github.com/sierra-research/tau-bench` before evaluating and set a user model. [Usage Example](https://evalscope.readthedocs.io/en/latest/third_party/tau_bench.html)
-- **Task Categories**: `FunctionCalling`, `Reasoning`
-- **Evaluation Metrics**: `Pass^1`
-- **Requires LLM Judge**: No
-- **Default Shots**: 0-shot
-- **Subsets**: `airline`, `retail`
-
-- **Extra Parameters**: 
-```json
-{
-    "user_model": "qwen-plus",
-    "api_key": "EMPTY",
-    "api_base": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-    "generation_config": {
-        "temperature": 0.0,
-        "max_tokens": 4096
-    }
-}
-```
-
----
-
-### ToolBench-Static
-
-[Back to Top](#llm-benchmarks)
-- **Dataset Name**: `tool_bench`
-- **Dataset ID**: [AI-ModelScope/ToolBench-Static](https://modelscope.cn/datasets/AI-ModelScope/ToolBench-Static/summary)
-- **Description**:
-  > ToolBench is a benchmark for evaluating AI models on tool use tasks. It includes various subsets such as in-domain and out-of-domain, each with its own set of problems that require step-by-step reasoning to arrive at the correct answer. [Usage Example](https://evalscope.readthedocs.io/en/latest/third_party/toolbench.html)
-- **Task Categories**: `FunctionCalling`, `Reasoning`
-- **Evaluation Metrics**: `Act.EM`, `F1`, `HalluRate`, `Plan.EM`, `Rouge-L`
-- **Requires LLM Judge**: No
-- **Default Shots**: 0-shot
-- **Subsets**: `in_domain`, `out_of_domain`
-
 
 ---
 
@@ -2406,6 +2337,33 @@ Answer the following multiple choice question. The entire content of your respon
 {question}
 
 {choices}
+```
+
+</details>
+
+---
+
+### WMT2024++
+
+[Back to Top](#llm-benchmarks)
+- **Dataset Name**: `wmt24pp`
+- **Dataset ID**: [extraordinarylab/wmt24pp](https://modelscope.cn/datasets/extraordinarylab/wmt24pp/summary)
+- **Description**:
+  > WMT2024 news translation benchmark supporting multiple language pairs. Each subset represents a specific translation direction
+- **Task Categories**: `MachineTranslation`, `MultiLingual`
+- **Evaluation Metrics**: `bert_score`, `bleu`, `comet`
+- **Requires LLM Judge**: No
+- **Default Shots**: 0-shot
+- **Subsets**: `en-ar_eg`, `en-ar_sa`, `en-bg_bg`, `en-bn_in`, `en-ca_es`, `en-cs_cz`, `en-da_dk`, `en-de_de`, `en-el_gr`, `en-es_mx`, `en-et_ee`, `en-fa_ir`, `en-fi_fi`, `en-fil_ph`, `en-fr_ca`, `en-fr_fr`, `en-gu_in`, `en-he_il`, `en-hi_in`, `en-hr_hr`, `en-hu_hu`, `en-id_id`, `en-is_is`, `en-it_it`, `en-ja_jp`, `en-kn_in`, `en-ko_kr`, `en-lt_lt`, `en-lv_lv`, `en-ml_in`, `en-mr_in`, `en-nl_nl`, `en-no_no`, `en-pa_in`, `en-pl_pl`, `en-pt_br`, `en-pt_pt`, `en-ro_ro`, `en-ru_ru`, `en-sk_sk`, `en-sl_si`, `en-sr_rs`, `en-sv_se`, `en-sw_ke`, `en-sw_tz`, `en-ta_in`, `en-te_in`, `en-th_th`, `en-tr_tr`, `en-uk_ua`, `en-ur_pk`, `en-vi_vn`, `en-zh_cn`, `en-zh_tw`, `en-zu_za`
+
+- **Prompt Template**:
+<details><summary>View</summary>
+
+```text
+Translate the following {source_language} sentence into {target_language}:
+
+{source_language}: {source_text}
+{target_language}:
 ```
 
 </details>
